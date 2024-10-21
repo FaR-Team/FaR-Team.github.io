@@ -84,12 +84,7 @@ header {
         margin: 10px 0;
     }
 }
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px;
-}
+
 footer {
     background-color: #35424a;
     color: #ffffff;
@@ -475,16 +470,11 @@ html {
         pointer-events: auto;
     }
 }
-.news-section { margin-top: 25px; }
-.about-section { margin-top: 25px; }
-.game-section { margin-top: 25px; }
-.devlog-section { margin-top: 25px; }
-.team-section { margin-top: 25px; }
-.contact-section { margin-top: 25px; }
+
 .news-section h2 {
     color: #35424a;
     margin-bottom: 30px;
-    max-width: 800px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     font-size: 2.5rem;
@@ -499,7 +489,7 @@ html {
     background-color: #e8491d;
 }
 .news-carousel {
-    max-width: 800px;
+    max-width: 1000px;
     height: 400px;
     margin: 0 auto;
     position: relative;
@@ -578,80 +568,111 @@ html {
     font-size: 18px;
     z-index: 10;
 }
+  .news-carousel .prev {
+      left: 10px;
+  }
 
-.news-carousel .prev {
-    left: 10px;
-}
+  .news-carousel .next {
+      right: 10px;
+  }
 
-.news-carousel .next {
-    right: 10px;
-}
+  .dots {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+  }
 
-.dots {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-}
+  .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+  }
 
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: #bbb;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-}
+  .dot.active {
+      background-color: #35424a;
+  }
 
-.dot.active {
-    background-color: #35424a;
-}
+  .about-section h2 {
+      color: #35424a;
+      margin-bottom: 30px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 2.5rem;
+      position: relative;
+  }
 
-.about-section h2 {
-    color: #35424a;
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 2.5rem;
-    position: relative;
-}
+  .about-section h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: #e8491d;
+  }
 
-.about-section h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: #e8491d;
-}
+  .about-content {
+      max-width: 1000px;
+      height: 400px;
+      margin: 0 auto;
+      display: flex;
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
 
-.about-content {
-    max-width: 800px;
-    height: 400px;
-    margin: 0 auto;
-    display: flex;
-    background-color: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.about-text {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+  .about-text {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
 
-.about-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
+  .about-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+  }
 
-.social-icons {
-    display: flex;
-    gap: 20px;
-}
+  .social-icons {
+      display: flex;
+      gap: 20px;
+  }
+
+  .container,
+  .news-section,
+  .about-section,
+  .game-section,
+  .devlog-section,
+  .team-section,
+  .contact-section {
+      max-width: 1400px;
+      margin-top: 25px;
+      margin: 0 auto;
+      padding: 0 20px;
+  }
+
+  .news-carousel,
+  .about-content {
+      max-width: 1000px;
+  }
+
+  .game-content {
+      max-width: 1000px;
+      height: 350px;
+  }
+
+  .contact-container {
+      max-width: 1200px;
+  }
+
+  .team-grid {
+      max-width: 1400px;
+  }
 
 .social-icons a {
     font-size: 24px;
@@ -689,7 +710,7 @@ html {
 }
 
 .devlog-preview {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 16px;

@@ -33,9 +33,9 @@
         <div class="news-carousel">
             <button class="prev"><</button>
             <div class="news-content">
-                <a href="https://farteamdev.blogspot.com/new-game-announcement" class="news-item active" style="background-image: url('Images/FaRBanner.jpeg');"></a>
-                <a href="https://farteamdev.blogspot.com/farmoxel-update" class="news-item" style="background-image: url('https://via.placeholder.com/1500x500?text=news+1');"></a>
-                <a href="https://farteamdev.blogspot.com/team-expansion" class="news-item" style="background-image: url('https://via.placeholder.com/1500x500?text=news+2');"></a>
+                <a href="https://blog.farteam.digital/new-game-announcement" class="news-item active" style="background-image: url('Images/FaRBanner.jpeg');"></a>
+                <a href="https://blog.farteam.digital/farmoxel-update" class="news-item" style="background-image: url('https://via.placeholder.com/1500x500?text=news+1');"></a>
+                <a href="https://blog.farteam.digital/team-expansion" class="news-item" style="background-image: url('https://via.placeholder.com/1500x500?text=news+2');"></a>
                 <a href="https://justneki.com/RoomMakersWeb" class="news-item" style="background-image: url('Images/RMBanner.png');"></a>
             </div>
             <div class="dots"></div>
@@ -51,7 +51,7 @@
                 <div class="social-icons">
                     <a href="https://x.com/FaRTeamStudio" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/farteamstudio/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://farteamdev.blogspot.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-blog"></i></a>
+                    <a href="https://blog.farteam.digital/" target="_blank" rel="noopener noreferrer"><i class="fas fa-blog"></i></a>
                     <a href="https://www.linkedin.com/company/farteam/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
@@ -61,7 +61,7 @@
 
     <div id="projects" class="container">
         <div class="game-section">
-            <h2>Our Games</h2>
+            <h2>Our Projects</h2>
             <div class="game-content">
                 <div class="game-logos">
                     <a href="farmoxel.html" class="game-logo-link">
@@ -70,7 +70,7 @@
                     <a href="roomMakers.html" class="game-logo-link">
                         <img src="Images/RMLogo.png" alt="Room Makers Logo" class="game-logo">
                     </a>
-                    <a href="https://farteam.com/kta" class="game-logo-link">
+                    <a href="kta.html" class="game-logo-link">
                         <img src="Images/KTALogo.png" alt="KTA Logo" class="game-logo">
                     </a>
                 </div>
@@ -84,7 +84,7 @@
             <h3>The Farmoxel Project</h3>
             <p>This is a devlog for our on-development game.</p>
             <div class="latest-post">
-                <iframe src="https://far-team.github.io/devlog/2024/10/01/We-took-Room-Makers-to-a-festival!.html" frameborder="0" class="devlog-embed"></iframe>
+                <iframe src="https://blog.farteam.digital/latest" frameborder="0" class="devlog-embed"></iframe>
             </div>
         </div>
     </div>
@@ -269,12 +269,20 @@
             dotsContainer.appendChild(dot);
         });
 
+        let carouselInterval;
+
+        function startCarouselTimer() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextSlide, 5000);
+        }
+
         function goToSlide(index) {
             items[currentIndex].classList.remove('active');
             dotsContainer.children[currentIndex].classList.remove('active');
             currentIndex = index;
             items[currentIndex].classList.add('active');
             dotsContainer.children[currentIndex].classList.add('active');
+            startCarouselTimer(); // Reset the timer when manually changing slides
         }
 
         function nextSlide() {
@@ -288,8 +296,13 @@
         nextButton.addEventListener('click', nextSlide);
         prevButton.addEventListener('click', prevSlide);
 
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
+        // Start the initial timer
+        startCarouselTimer();
+
+        // Add click event listeners to dots
+        dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
     </script>
     </body>
 </html>
