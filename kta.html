@@ -51,13 +51,28 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .content-wrapper {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="Images/FaRLogo.jpg">
 </head>
 <body>
     <header>
-        <img src="Images/FaRLogo.jpg" alt="FaR Team Logo" class="logo">
+        <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
         <nav>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -69,6 +84,7 @@
             <span></span>
         </div>
     </header>
+    <div class="content-wrapper">
       <div class="container">
           <h1 class="game-title">KTA</h1>
       </div>
@@ -88,7 +104,7 @@
             <a href="https://play.google.com/store/apps/details?id=com.FaRTeam.KTA" class="demo-button">DOWNLOAD FOR FREE</a>
         </div>
         <div class="devlog-button-container">
-            <a href="https://far-team.github.io/devlog/" class="devlog-button">DEVLOG</a>
+            <a href="https://blog.farteam.digital/" class="devlog-button">DEVLOG</a>
         </div>
     </div>
     
