@@ -11,7 +11,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #35424a;
+    background-color: #D88E49;
     color: #ffffff;
     padding: 1rem;
     display: flex;
@@ -116,7 +116,7 @@ header {
 
 footer {
     margin-top: 40px;
-    background-color: #35424a;
+    background-color: #D88E49;
     color: #ffffff;
     padding: 1rem;
 }
@@ -312,7 +312,7 @@ footer .nav-menu a {
 }
 .cta-button {
     display: inline-block;
-    background-color: #e8491d;
+    background-color: #D88E49;
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
@@ -457,7 +457,7 @@ html {
 
 #contact-form button {
     padding: 10px 20px;
-    background-color: #e8491d;
+    background-color: #D88E49;
     color: white;
     border: none;
     border-radius: 4px;
@@ -466,7 +466,7 @@ html {
 }
 
 #contact-form button:hover {
-    background-color: #e8496d;
+    background-color: #C1CF47;
 }
 
 @media (max-width: 768px) {
@@ -766,7 +766,7 @@ html {
 .devlog-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: #e8491d;
+    background-color: #D88E49;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -775,7 +775,7 @@ html {
 }
 
 .devlog-button:hover {
-    background-color: #e8494f;
+    background-color: #C1CF47;
 }
 
 .devlog-preview {
