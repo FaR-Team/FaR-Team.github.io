@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px;
+    padding-top: 100px;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -155,6 +155,12 @@ footer .nav-menu a {
     }
 }
 
+.social-icons-about {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
 .social-icons-container {
     margin-top: auto;
     padding-top: 10px;
@@ -164,17 +170,6 @@ footer .nav-menu a {
     display: flex;
     justify-content: center;
     gap: 10px;
-}
-
-.social-icons a {
-    color: #333;
-    font-size: 20px;
-    margin: 0 5px;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #007bff;
 }
 
 .footer-bottom {
@@ -227,6 +222,13 @@ footer .nav-menu a {
     }
 }
 
+.game-section {
+    max-width: 1400px;
+    margin-top: 25px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .game-section h2 {
     color: #35424a;
     margin-bottom: 30px;
@@ -266,7 +268,7 @@ footer .nav-menu a {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100%;
+    height: 90%;
     padding: 20px;
 }
 
@@ -678,15 +680,9 @@ html {
       margin-bottom: 20px;
   }
 
-  .social-icons {
-      display: flex;
-      gap: 20px;
-  }
-
   .container,
   .news-section,
   .about-section,
-  .game-section,
   .devlog-section,
   .team-section,
   .contact-section {
@@ -713,6 +709,16 @@ html {
   .team-grid {
       max-width: 1400px;
   }
+
+.social-icons-about a {
+    font-size: 24px;
+    color: #C1CF47;
+    transition: color 0.3s ease;
+}
+
+.social-icons-about a:hover {
+    color: #D88E49;
+}
 
 .social-icons a {
     font-size: 24px;
