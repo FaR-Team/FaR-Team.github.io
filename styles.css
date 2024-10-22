@@ -243,7 +243,7 @@ footer .nav-menu a {
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #e8491d;
+    background-color: #D88E49;
     margin: 15px auto 0;
 }
 
@@ -422,6 +422,7 @@ html {
 
 .contact-title h2 {
     font-size: 2.5em;
+    color: #000000;
     margin-bottom: 20px;
 }
 .contact-title h2::after {
@@ -429,7 +430,7 @@ html {
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #e8491d;
+    background-color: #D88E49;
 }
 
 .contact-content {
@@ -518,7 +519,7 @@ html {
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #e8491d;
+    background-color: #D88E49;
 }
 
 .section-separator {
@@ -570,7 +571,7 @@ html {
 }
 
 .read-more:hover {
-    background-color: #c13c16;
+    background-color: #C1CF47;
 }
 
 .dots {
@@ -649,7 +650,7 @@ html {
       display: block;
       width: 50px;
       height: 3px;
-      background-color: #e8491d;
+      background-color: #D88E49;
   }
 
   .about-content {
@@ -715,11 +716,12 @@ html {
 
 .social-icons a {
     font-size: 24px;
+    color: #C1CF47;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #e8491d;
+    color: #D88E49;
 }
 .about-image {
     
@@ -745,7 +747,7 @@ html {
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #e8491d;
+    background-color: #D88E49;
     margin: 15px auto 0;
 }
 
@@ -848,7 +850,7 @@ html {
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #e8491d;
+    background-color: #D88E49;
     margin: 15px auto 0;
 }
 .team-grid {
@@ -934,7 +936,7 @@ html {
 }
 
 #closeAlert {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #C1CF47 0%, #D88E49 100%);
     color: white;
     border: none;
     padding: 10px 20px;
