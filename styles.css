@@ -154,10 +154,16 @@ footer .nav-menu a {
         display: flex;
     }
 }
+
+.social-icons-container {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
 .social-icons {
-    margin-top: 10px;
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 
 .social-icons a {
@@ -909,6 +915,8 @@ html {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .team-member img {
@@ -918,6 +926,8 @@ html {
     object-fit: cover;
     margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
 }
 .team-member h2 {
     color: #35424a;
