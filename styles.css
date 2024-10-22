@@ -21,7 +21,7 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 .logo {
-    height: 40px;
+    height: 70px;
 }
 .hamburger {
     display: none;
@@ -128,7 +128,7 @@ footer .container {
 }
 
 footer .logo {
-    height: 40px;
+    height: 70px;
 }
 
 footer .nav-menu {
@@ -393,12 +393,15 @@ html {
         margin-bottom: 15px;
     }
 }
+
 .hero-banner {
+    width: 1240px;
     height: 400px;
-    width: 80%;
     margin: 0 auto;
     background-size: cover;
     background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -711,9 +714,10 @@ html {
   }
 
 .social-icons-about a {
-    font-size: 24px;
+    font-size: 32px;
     color: #C1CF47;
     transition: color 0.3s ease;
+    margin: 0 10px;
 }
 
 .social-icons-about a:hover {
@@ -721,16 +725,16 @@ html {
 }
 
 .social-icons a {
-    font-size: 24px;
+    font-size: 32px;
     color: #C1CF47;
     transition: color 0.3s ease;
+    margin: 0 10px;
 }
 
 .social-icons a:hover {
     color: #D88E49;
 }
 .about-image {
-    
     flex: 1;
     background-size: contain;
     background-position: center;
@@ -773,6 +777,7 @@ html {
 
 .devlog-button {
     display: inline-block;
+    font-size: 24px;
     padding: 10px 20px;
     background-color: #C1CF47;
     color: white;
@@ -782,7 +787,23 @@ html {
     transition: background-color 0.3s ease;
 }
 
+.other-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #C1CF47;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
 .devlog-button:hover {
+    background-color: #D88E49;
+}
+
+.other-button:hover {
     background-color: #D88E49;
 }
 
@@ -956,4 +977,33 @@ html {
 #closeAlert:hover {
     transform: translateY(-2px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.game-title {
+    font-size: 5rem;
+    color: #D88E49;
+    text-align: center;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-box {
+    max-width: 1200px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 25px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding: 20px;
+}
+
+.content-box p {
+    color: #000000;
+    line-height: 1.6;
 }

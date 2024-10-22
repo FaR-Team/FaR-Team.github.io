@@ -57,7 +57,7 @@
                     <a href="https://www.linkedin.com/company/farteam/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <div class="about-image" style="background-image: url('Images/FaRLogo.jpg');"></div>
+            <div class="about-image" style="background-image: url('Images/gif.gif');"></div>
         </div>
     </div>
 
@@ -238,8 +238,16 @@
                     e.preventDefault();
                     const targetId = link.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    
                     if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 }
                 navMenu.classList.remove('active');

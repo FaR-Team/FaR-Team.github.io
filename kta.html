@@ -10,32 +10,6 @@
             text-align: center;
             margin-top: 2rem;
         }
-        
-        .game-title {
-            font-size: 3rem;
-            color: #D88E49;
-            text-align: center;
-            margin: 1rem 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .content-wrapper {
-            flex: 1 0 auto;
-        }
-
-        footer {
-            flex-shrink: 0;
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="Images/FaRLogo.jpg">
@@ -59,26 +33,27 @@
           <h1 class="game-title">KTA</h1>
       </div>
 
-      <div class="hero-banner" style="background-image: url('Images/FaRBanner.jpeg');">
-          <div class="hero-content">
-          </div>
-      </div>
+    <div class="hero-banner" style="background-image: url('Images/FaRBanner.jpeg');">
+        <div class="hero-content"></div>
+    </div>
 
       <div class="container">
         <section class="about-game">
+            <div class="content-box">
             <h2>About KTA</h2>
             <p>This procedurally generated space shooter puts you in control of a small ship with a singular goal: achieve the highest score possible. The game’s endless format challenges you to improve on your previous attempts, requiring quick reflexes and strategic maneuvering as enemies and obstacles become increasingly difficult. With no set end, the only limit is your own skill and persistence, creating a thrilling loop of self-improvement and high-stakes action. Perfect for players who love chasing personal records, this game encourages you to keep pushing your limits to outdo yourself each time.</p>
+            </div>
         </section>
     
         <div class="devlog-button-container">
-            <a href="https://play.google.com/store/apps/details?id=com.FaRTeam.KTA" class="devlog-button">DOWNLOAD FOR FREE</a>
+            <a href="https://play.google.com/store/apps/details?id=com.FaRTeam.KTA" class="other-button">DOWNLOAD FOR FREE</a>
         </div>
         <div class="devlog-button-container">
             <a href="https://blog.farteam.digital/" class="devlog-button">DEVLOG</a>
         </div>
     </div>
     
-    <footer>
+    <footer id="main-footer">
         <div class="container">
             <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
             <nav>
@@ -96,5 +71,26 @@
             <p>© 2024 FaR Team. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        // Function to toggle header visibility
+        function toggleHeaderVisibility() {
+            const header = document.querySelector('header');
+            const footer = document.getElementById('main-footer');
+            const headerHeight = header.offsetHeight;
+            const footerTop = footer.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (footerTop - windowHeight < headerHeight) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', toggleHeaderVisibility);
+        // Initial check
+        toggleHeaderVisibility();
+    </script>
 </body>
 </html>

@@ -10,17 +10,6 @@
             text-align: center;
             margin-top: 2rem;
         }
-        
-        .game-title {
-            font-size: 3rem;
-            color: #D88E49;
-            text-align: center;
-            margin: 1rem 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
 
         body {
             display: flex;
@@ -67,20 +56,22 @@
 
       <div class="container">
         <section class="about-game">
+            <div class="content-box">
             <h2>About Room Makers</h2>
             <p>Room Makers is a puzzle-based game developed by FaR Team, originally created for the GBJam-11 game jam. In this game, players manipulate different elements within rooms to solve challenges, using a blend of creativity and strategy. The gameplay revolves around room-building mechanics, where players must rearrange objects and layouts to achieve specific goals. The project was later ported to Android, expanding its reach beyond the jam's original platform. The game showcases clever design and simplicity, emphasizing resourceful thinking over complex controls</p>
+            </div>
         </section>
     
         <div class="devlog-button-container">
-            <a href="https://farteam.digital/RoomMakersDemo" class="devlog-button">PLAY OUR FREE DEMO</a>
-            <a href="https://farteam.digital/RoomMakersFeedback" class="devlog-button">GIVE US FEEDBACK</a>
+            <a href="https://farteam.digital/RoomMakersDemo" class="other-button">PLAY OUR FREE DEMO</a>
+            <a href="https://farteam.digital/RoomMakersFeedback" class="other-button">GIVE US FEEDBACK</a>
         </div>
         <div class="devlog-button-container">
             <a href="https://blog.farteam.digital/" class="devlog-button">DEVLOG</a>
         </div>
     </div>
     
-    <footer>
+    <footer id="main-footer">
         <div class="container">
             <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
             <nav>
@@ -98,5 +89,26 @@
             <p>© 2024 FaR Team. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        // Function to toggle header visibility
+        function toggleHeaderVisibility() {
+            const header = document.querySelector('header');
+            const footer = document.getElementById('main-footer');
+            const headerHeight = header.offsetHeight;
+            const footerTop = footer.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (footerTop - windowHeight < headerHeight) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', toggleHeaderVisibility);
+        // Initial check
+        toggleHeaderVisibility();
+    </script>
 </body>
 </html>
