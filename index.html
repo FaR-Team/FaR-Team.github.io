@@ -219,11 +219,11 @@
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+          hamburger.addEventListener('click', () => {
+              navMenu.classList.toggle('active');
+              hamburger.classList.toggle('active');
+              document.querySelector('header').classList.toggle('active');
+          });
 
         document.addEventListener('click', (e) => {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
