@@ -405,6 +405,7 @@ html {
 }
 .contact-section {
     padding: 50px 0;
+    color: #35424a;
     background-color: #f8f8f8;
 }
 
@@ -422,7 +423,6 @@ html {
 
 .contact-title h2 {
     font-size: 2.5em;
-    color: #000000;
     margin-bottom: 20px;
 }
 .contact-title h2::after {
