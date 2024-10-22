@@ -1,27 +1,40 @@
-body {
-    padding-top: 100px;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    background-color: #f4f4f4;
+:root {
+    --container-width: min(90%, 1400px);
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+body {
+  padding-top: clamp(80px, 10vh, 100px);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
 header {
     position: fixed;
+    height: clamp(60px, 8vh, 80px);
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     background-color: #D88E49;
     color: #ffffff;
-    padding: 1rem;
+    padding: 0 clamp(10px, 3vw, 30px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
     transition: transform 0.3s ease-in-out;
 }
 .logo {
-    height: 70px;
+    height: clamp(60px, 8vh, 80px);
 }
 .hamburger {
     display: none;
@@ -38,7 +51,15 @@ header {
     display: flex;
     align-items: center;
     height: 100%;
+    gap: clamp(10px, 2vw, 20px);
 }
+
+@media (max-width: 768px) {
+    .nav-menu.active {
+      padding: 20px;
+      top: clamp(60px, 8vh, 80px);
+    }
+  }
 
 .nav-menu li {
     margin-left: 20px;
@@ -53,7 +74,9 @@ header {
     display: flex;
     align-items: center;
     height: 100%;
-}.hamburger {
+}
+
+.hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
@@ -118,7 +141,7 @@ footer {
     margin-top: 40px;
     background-color: #D88E49;
     color: #ffffff;
-    padding: 1rem;
+    padding: clamp(20px, 3vh, 40px);
 }
 
 footer .container {
@@ -128,7 +151,7 @@ footer .container {
 }
 
 footer .logo {
-    height: 70px;
+    height: clamp(60px, 8vh, 80px);
 }
 
 footer .nav-menu {
@@ -251,7 +274,8 @@ footer .nav-menu a {
 
 .game-content {
     max-width: 800px;
-    height: 300px;
+    height: auto;
+    min-height: 300px;
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 20px;
@@ -260,15 +284,11 @@ footer .nav-menu a {
     transition: transform 0.3s ease;
 }
 
-.game-content:hover {
-    transform: translateY(-5px);
-}
-
 .game-logos {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 90%;
+    height: 100%;
     padding: 20px;
 }
 
@@ -292,12 +312,7 @@ footer .nav-menu a {
     height: 180px;
     object-fit: contain;
 }
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px;
-}
+
 .hero {
     background-color: #35424a;
     color: #ffffff;
@@ -393,7 +408,6 @@ html {
         margin-bottom: 15px;
     }
 }
-
 .hero-banner {
     width: 1240px;
     height: 400px;
@@ -403,6 +417,7 @@ html {
     border-radius: 20px;
     overflow: hidden;
 }
+
 
 .hero-content {
     position: relative;
@@ -529,7 +544,7 @@ html {
 
 .section-separator {
     max-width: 1000px;
-    margin: 40px auto;
+    margin: clamp(30px, 5vh, 60px) auto;
     border-top: 1px solid #c8c8c8;
 }
 
@@ -660,13 +675,18 @@ html {
 
   .about-content {
       max-width: 1000px;
-      height: 400px;
+      min-height: clamp(300px, 60vh, 400px);
       margin: 0 auto;
       display: flex;
       background-color: #ffffff;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  @media (min-width: 768px) {
+    .about-content {
+      flex-direction: row;
+    }
   }
 
   .about-text {
@@ -683,20 +703,18 @@ html {
       margin-bottom: 20px;
   }
 
-  .container,
-  .news-section,
-  .about-section,
-  .devlog-section,
-  .team-section,
-  .contact-section {
-      max-width: 1400px;
-      margin-top: 25px;
-      margin: 0 auto;
-      padding: 0 20px;
-  }
+.container,
+.news-section,
+.about-section,
+.devlog-section,
+.team-section,
+.contact-section {
+  width: var(--container-width);
+  margin: clamp(20px, 3vh, 40px) auto;
+  padding: 0 20px;
+}
 
-  .news-carousel,
-  .about-content {
+  .news-carousel {
       max-width: 1000px;
   }
 
@@ -710,8 +728,11 @@ html {
   }
 
   .team-grid {
-      max-width: 1400px;
-  }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(20px, 3vw, 40px);
+    width: var(--container-width);
+  }  
 
 .social-icons-about a {
     font-size: 32px;
@@ -725,7 +746,7 @@ html {
 }
 
 .social-icons a {
-    font-size: 32px;
+    font-size: clamp(24px, 4vw, 32px);
     color: #C1CF47;
     transition: color 0.3s ease;
     margin: 0 10px;
@@ -1007,3 +1028,7 @@ html {
     color: #000000;
     line-height: 1.6;
 }
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+p { font-size: clamp(1rem, 2vw, 1.2rem); }
