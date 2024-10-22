@@ -767,8 +767,8 @@ html {
 
 .devlog-button {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #D88E49;
+    padding: 10px 20px;
+    background-color: #C1CF47;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -777,7 +777,7 @@ html {
 }
 
 .devlog-button:hover {
-    background-color: #C1CF47;
+    background-color: #D88E49;
 }
 
 .devlog-preview {
