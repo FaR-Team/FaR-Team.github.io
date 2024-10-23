@@ -68,7 +68,7 @@ const translations = {
         aboutKTA: "Sobre KTA",
         aboutKTA_text: "KTA es un juego arcade sin fin de alta puntuación, donde los jugadores pilotan una nave espacial esquivando obstáculos. Ya disponible en Google Play Store, planeamos futuras actualizaciones para mejorar la experiencia de juego.",
         aboutFarm: "Sobre Farmoxel",
-        aboutFarm_text1: "Farmoxel es un juego de gestión de recursos con estilo voxel, inspirado en juegos como Stardew Valley y Slime Rancher. Combina mecánicas clásicas de granja con un innovador mecánico de telequinesis, ofreciendo una experiencia fresca y acogedora.",
+        aboutFarm_text1: "Farmoxel es un juego de gestión de recursos con estilo voxel, inspirado en juegos como Stardew Valley y Slime Rancher. Combina mecánicas clásicas de granja con una innovadora mecánica de telequinesis, ofreciendo una experiencia fresca y acogedora.",
         aboutFarm_text2: "El juego cuenta con una rica narrativa, con 29 personajes únicos, cada uno con su historia, que llevará a los jugadores a través de emociones y sorpresas, culminando en un final memorable.",
         aboutBCL: "Sobre Big City Life",
         aboutBCL_text1: "Big City Life es un modo de juego en un servidor de Minecraft ambientado en una ciudad bulliciosa, donde los jugadores pueden desempeñar trabajos, comprar autos y alquilar apartamentos. A pesar de su complejidad, está manejado por el equipo B y no afectará el desarrollo de otros juegos del equipo F.a.R. El juego aún está en desarrollo.",
