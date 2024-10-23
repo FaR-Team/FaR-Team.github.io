@@ -1107,8 +1107,41 @@ p { font-size: clamp(1rem, 2vw, 1.2rem); }
 }
 
 .easter-egg.found {
-    font-family: 'Press Start 2P', cursive;
-    color: #ff6b6b;
+    font-family: 'Minecraft', sans-serif;
+    color: #9e9e9e;
     cursor: pointer;
-    text-shadow: 2px 2px #4a4a4a;
+}
+
+.easter-egg[data-egg="city"] {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.devlog-overlay {
+    z-index: 1;
+}
+
+.secret-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 20px 40px;
+    background-color: #ff69b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.secret-button:hover {
+    transform: scale(1.1);
+}
+
+#secret-button-container {
+    margin: 20px 0;
 }

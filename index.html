@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="Images/FaRLogo.jpg">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
     </head>
 <body>
     <header>
@@ -55,7 +56,7 @@
         <h2 data-lang="nav_about">About Us</h2>
         <div class="about-content">
             <div class="about-text">
-                <p data-lang="aboutText1">F.a.R. Team is a game development studio dedicated to creating high-quality, cozy, casual games. We also strive to offer a welcoming space in the industry where aspiring talents can kickstart their careers in game development, regardless of prior experience.</p>
+                <p data-lang="aboutText1">F.a.R. Team is a game development studio dedicated to creating high-quality, cozy, casual games. We also strive to offer a welcoming space in this <span class="easter-egg" data-lang="easterEgg_big" data-egg="big">big</span> industry where aspiring talents can kickstart their careers in game development, regardless of prior experience.</p>
                 <p data-lang="aboutText2">Beyond game creation, we are committed to fostering a collaborative and inclusive culture where creativity thrives. Our team believes in the importance of mentorship, providing guidance and opportunities for growth as we work together to build experiences that delight and inspire players.</p>
                 <div class="social-icons-about">
                     <a href="https://x.com/FaRTeamStudio" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
@@ -91,18 +92,20 @@
         <div class="devlog-content">
             <a href="https://blog.farteam.digital/" class="devlog-button">DEVLOG</a>
             <div class="devlog-preview">
-                <a href="http://blog.farteam.digital/2024/10/we-took-room-makers-to-festival.html" target="_blank">
-                    <div class="devlog-image-container">
+                <div class="devlog-image-container">
+                    <a href="http://blog.farteam.digital/2024/10/we-took-room-makers-to-festival.html" target="_blank">
                         <img src="Images/RMBanner.png" alt="Devlog Preview" class="devlog-image">
-                        <div class="devlog-overlay">
-                            <span class="devlog-title" data-lang="latestDevlogTitle">We Took Room Makers to a Festival!</span>
-                        </div>
+                    </a>
+                    <div class="devlog-overlay">
+                        <p class="devlog-title">
+                            <span data-lang="latestDevlogTitle">We took Room Makers to a Festival in our</span>
+                            <span class="easter-egg" data-lang="easterEgg_city" data-egg="city">city</span>!
+                        </p>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
-    </div>    
-
+    </div>
     <div class="section-separator"></div>
       <div id="team" class="team-section">
           <h2 data-lang="nav_team">Our Team</h2>
@@ -173,6 +176,11 @@
       </div>
 
     <div class="section-separator"></div>
+    
+    <div id="secret-button-container" style="display: none; text-align: center; padding: 20px;">
+        <a href="bcl.html" class="secret-button">Discover Our Secret</a>
+    </div>
+    
     
     <div id="contact" class="contact-section">
         <div class="contact-container">
@@ -437,45 +445,53 @@
           }
 
           function translatePage(lang) {
+              // Handle text translations including easter eggs
               const elements = document.querySelectorAll('[data-lang]');
               elements.forEach(element => {
                   const key = element.getAttribute('data-lang');
                   if (translations[lang] && translations[lang][key]) {
                       let text = translations[lang][key];
-                      
+            
                       // Handle easter eggs
                       const easterEggs = element.querySelectorAll('.easter-egg');
                       easterEggs.forEach(egg => {
                           const eggType = egg.getAttribute('data-egg');
                           text = text.replace(`{${eggType}}`, `<span class="easter-egg" data-egg="${eggType}">${eggType}</span>`);
                       });
-                      
+            
                       element.innerHTML = text;
                   }
               });
-              
-              // Reattach easter egg listeners after translation
+
+              // Handle image translations for news carousel
+              const imageElements = document.querySelectorAll('[data-lang-img]');
+              imageElements.forEach(element => {
+                  const key = element.getAttribute('data-lang-img');
+                  if (translations[lang] && translations[lang][key]) {
+                      element.style.backgroundImage = `url('${translations[lang][key]}')`;
+                  }
+              });
+    
+              // Reattach easter egg listeners
               initializeEasterEggs();
           }
-
           function initializeEasterEggs() {
               const easterEggs = document.querySelectorAll('.easter-egg');
-              let foundEggs = JSON.parse(localStorage.getItem('foundEggs') || '[]');
+              const secretButtonContainer = document.getElementById('secret-button-container');
+              let foundEggs = [];
               
               easterEggs.forEach(egg => {
-                  if (foundEggs.includes(egg.dataset.egg)) {
-                      egg.classList.add('found');
-                  }
-                  
                   egg.addEventListener('click', () => {
                       if (!foundEggs.includes(egg.dataset.egg)) {
                           egg.classList.add('found');
                           foundEggs.push(egg.dataset.egg);
-                          localStorage.setItem('foundEggs', JSON.stringify(foundEggs));
                           
                           if (foundEggs.length === 3) {
-                              showCustomAlert('You found all hidden words! A secret has been revealed...');
-                              window.location.href = 'bigcitylife.html';
+                              secretButtonContainer.style.display = 'block';
+                              secretButtonContainer.scrollIntoView({ 
+                                  behavior: 'smooth',
+                                  block: 'center'
+                              });
                           }
                       }
                   });
