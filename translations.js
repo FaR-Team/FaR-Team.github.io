@@ -37,6 +37,9 @@ const translations = {
         news_image_2: "Images/News2.png", 
         news_image_3: "Images/News3.png",
         news_image_4: "Images/News4.png",
+        downloadButton: "DOWNLOAD FOR FREE",
+        demoButton: "PLAY OUR FREE DEMO", 
+        feedbackButton: "GIVE US FEEDBACK", 
     },
     es: {
         nav_home: "Inicio",
@@ -76,5 +79,8 @@ const translations = {
         news_image_2: "Images/News2_es.png",
         news_image_3: "Images/News3_es.png", 
         news_image_4: "Images/News4_es.png",
+        downloadButton: "DESCARGALO GRATIS",
+        demoButton: "JUGÁ LA DEMO GRATIS", 
+        feedbackButton: "DANOS FEEDBACK", 
     }
 };

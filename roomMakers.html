@@ -36,6 +36,12 @@
         <nav>
             <ul class="nav-menu">
                 <li><a href="index.html" data-lang="nav_home">Home</a></li>
+                <li class="language-selector">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </li>
             </ul>
         </nav>
         <div class="hamburger">
@@ -64,8 +70,8 @@
         </section>
     
         <div class="devlog-button-container">
-            <a href="https://farteam.digital/RoomMakersDemo" class="other-button">PLAY OUR FREE DEMO</a>
-            <a href="https://farteam.digital/RoomMakersFeedback" class="other-button">GIVE US FEEDBACK</a>
+            <a href="https://farteam.digital/RoomMakersDemo" class="other-button" data-lang="demoButton">PLAY OUR FREE DEMO</a>
+            <a href="https://farteam.digital/RoomMakersFeedback" class="other-button" data-lang="feedbackButton">GIVE US FEEDBACK</a>
         </div>
         <div class="devlog-button-container">
             <a href="https://blog.farteam.digital/" class="devlog-button">DEVLOG</a>
@@ -113,26 +119,27 @@
         toggleHeaderVisibility();
 
         function translatePage(lang) {
-              const elements = document.querySelectorAll('[data-lang]');
-              elements.forEach(element => {
-                  const key = element.getAttribute('data-lang');
-                  if (translations[lang] && translations[lang][key]) {
-                      element.textContent = translations[lang][key];
-                  }
-              });
-          }
-        
-          languageSelect.addEventListener('change', (e) => {
-              translatePage(e.target.value);
-              localStorage.setItem('preferredLanguage', e.target.value);
-          });
-        
-          // Initial translation on page load
-          document.addEventListener('DOMContentLoaded', () => {
-              const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-              languageSelect.value = savedLanguage;
-              translatePage(savedLanguage);
-          });
+            const elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        const languageSelect = document.getElementById('languageSelect');
+
+        languageSelect.addEventListener('change', (e) => {
+            translatePage(e.target.value);
+            localStorage.setItem('preferredLanguage', e.target.value);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
+            languageSelect.value = savedLanguage;
+            translatePage(savedLanguage);
+        });   
     </script>
 </body>
 </html>

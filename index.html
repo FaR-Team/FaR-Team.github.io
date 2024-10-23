@@ -505,23 +505,13 @@
               translatePage(e.target.value);
               localStorage.setItem('preferredLanguage', e.target.value);
           });
-            // Replace the existing DOMContentLoaded event listener with this updated version
-            document.addEventListener('DOMContentLoaded', () => {
-                const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
-                languageSelect.value = savedLanguage;
-                translatePage(savedLanguage);
-            });
 
-            // Add this to handle language persistence across all pages
-            const allLinks = document.querySelectorAll('a');
-            allLinks.forEach(link => {
-                if (link.href.includes('farteam.digital')) {
-                    link.addEventListener('click', () => {
-                        const currentLang = document.getElementById('languageSelect').value;
-                        localStorage.setItem('preferredLanguage', currentLang);
-                    });
-                }
-            });
+          // Replace your existing DOMContentLoaded event listener with this:
+          document.addEventListener('DOMContentLoaded', () => {
+              const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
+              languageSelect.value = savedLanguage;
+              translatePage(savedLanguage);
+          });
 
           // Update the game logo links in the projects section
         document.addEventListener('DOMContentLoaded', () => {
