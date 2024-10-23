@@ -869,33 +869,38 @@ footer .nav-menu a {
     width: calc(33.33% - 40px);
     max-width: 300px;
     background-color: #ffffff;
-    padding: 20px 20px 0 20px; /* Remove bottom padding */
+    padding: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    position: relative;
-    min-height: 400px;
 }
 
-.social-icons {
-    margin-top: auto;
-    padding: 15px 0;
-    width: 100%;
-    margin-bottom: 0; /* Ensure no margin at bottom */
-}
 .team-member img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: block;
-    margin: 0 auto;
 }
-.team-member h2 {
-    color: #35424a;
+
+.member-content {
+    flex: 1;
+}
+
+.social-icons-container {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.social-icons {
+    margin-top: auto;
+    padding: 15px 0 0 0;
+    justify-content: center;
+}
+
+.team-member h2 {    color: #35424a;
     margin: 0 0 5px;
     font-size: clamp(1.5rem, 4vw, 1.8rem);
 }
