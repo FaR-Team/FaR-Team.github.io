@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 :root {
     --container-width: min(100%, 1400px);
@@ -11,7 +12,7 @@
 }
 
 html, body {
-    font-family: 'ABeeZee', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     padding-top: clamp(30px, 8vh, 40px);
     max-width: 100vw;
     width: 100vw;
@@ -19,6 +20,20 @@ html, body {
     overflow-x: hidden;
 }
 
+/* Keep ABeeZee for headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'ABeeZee', sans-serif;
+}
+
+/* Keep ABeeZee for navigation */
+.nav-menu {
+    font-family: 'ABeeZee', sans-serif;
+}
+
+/* Ensure Open Sans for paragraphs and general text */
+p, span, div, input, textarea, button {
+    font-family: 'Open Sans', sans-serif;
+}
 header {
     position: fixed;
     height: clamp(60px, 8vh, 80px);
@@ -29,7 +44,7 @@ header {
     z-index: 2000;
     background-color: #D88E49;
     color: #ffffff;
-    padding: 0 clamp(10px, 3vw, 30px);
+    padding: 0 clamp(10px, 3vw, 30px);;
     display: flex;
     justify-content: space-between;
     align-items: center;
