@@ -505,8 +505,16 @@ footer .nav-menu {
     font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
+.content-box h2 {
+    color: #35424a;
+    margin-bottom: 30px;
+    width: 1000px;
+    text-align: left;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+}
 .news-section h2::after,
-.contact-section h2::after {
+.contact-section h2::after,
+.content-box h2::after {
     content: '';
     display: block;
     width: 50px;
@@ -669,28 +677,30 @@ footer .nav-menu {
     line-height: 1.6;
     margin-bottom: 20px;
 }
-  .container,
-  .news-section,
-  .about-section,
-  .team-section,
-  .contact-section,
-  .game-section,
-  .game-content {
-      width: var(--container-width);
-      margin: clamp(20px, 3vh, 40px) auto;
-      padding: 0 20px;
-      height: auto;
-      min-height: 300px;
-  }
 
-  /* Remove any fixed heights from these specific containers */
-  .game-content {
-      max-width: 1000px;
-  }
+.container,
+.news-section,
+.about-section,
+.team-section,
+.contact-section,
+.game-section,
+.game-content {
+    width: var(--container-width);
+    margin: clamp(20px, 3vh, 40px) auto;
+    padding: 0 20px;
+    height: auto;
+    min-height: 300px;
+}
 
-  .contact-container {
-      max-width: 1200px;
-  }
+/* Remove any fixed heights from these specific containers */
+.game-content {
+    max-width: 1000px;
+}
+
+.contact-container {
+    max-width: 1200px;
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr ));
