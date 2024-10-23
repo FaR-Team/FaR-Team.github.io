@@ -179,7 +179,7 @@
             <div class="contact-flex-wrapper">
                 <div class="contact-info">
                     <h2 data-lang="nav_contact">Contact Us</h2>
-                    <p class="contact-subtitle" data-lang="contactSubtitle">For business, promotional inquiries or if you want to stay in touch with our projects please contact us</p>
+                    <p class="contact-subtitle" data-lang="contactSubtitle">For business, promotional inquiries or if you want to stay in touch with our projects and the <span class="easter-egg" data-lang="easterEgg_life" data-egg="life">Life</span> they inspire</p>
                 </div>
                 <div class="contact-content">
                     <form id="contact-form">
@@ -436,6 +436,55 @@
               });
           }
 
+          function translatePage(lang) {
+              const elements = document.querySelectorAll('[data-lang]');
+              elements.forEach(element => {
+                  const key = element.getAttribute('data-lang');
+                  if (translations[lang] && translations[lang][key]) {
+                      let text = translations[lang][key];
+                      
+                      // Handle easter eggs
+                      const easterEggs = element.querySelectorAll('.easter-egg');
+                      easterEggs.forEach(egg => {
+                          const eggType = egg.getAttribute('data-egg');
+                          text = text.replace(`{${eggType}}`, `<span class="easter-egg" data-egg="${eggType}">${eggType}</span>`);
+                      });
+                      
+                      element.innerHTML = text;
+                  }
+              });
+              
+              // Reattach easter egg listeners after translation
+              initializeEasterEggs();
+          }
+
+          function initializeEasterEggs() {
+              const easterEggs = document.querySelectorAll('.easter-egg');
+              let foundEggs = JSON.parse(localStorage.getItem('foundEggs') || '[]');
+              
+              easterEggs.forEach(egg => {
+                  if (foundEggs.includes(egg.dataset.egg)) {
+                      egg.classList.add('found');
+                  }
+                  
+                  egg.addEventListener('click', () => {
+                      if (!foundEggs.includes(egg.dataset.egg)) {
+                          egg.classList.add('found');
+                          foundEggs.push(egg.dataset.egg);
+                          localStorage.setItem('foundEggs', JSON.stringify(foundEggs));
+                          
+                          if (foundEggs.length === 3) {
+                              showCustomAlert('You found all hidden words! A secret has been revealed...');
+                              window.location.href = 'bigcitylife.html';
+                          }
+                      }
+                  });
+              });
+          }
+
+          // Call initializeEasterEggs on page load
+          document.addEventListener('DOMContentLoaded', initializeEasterEggs);
+
           languageSelect.addEventListener('change', (e) => {
               translatePage(e.target.value);
               localStorage.setItem('preferredLanguage', e.target.value);
@@ -447,6 +496,7 @@
               languageSelect.value = savedLanguage;
               translatePage(savedLanguage);
           });
+
       </script>
     </body>
 </html>

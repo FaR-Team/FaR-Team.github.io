@@ -1099,3 +1099,16 @@ p { font-size: clamp(1rem, 2vw, 1.2rem); }
       padding: 10px;
       font-family: 'Open Sans', sans-serif;
   }
+
+  .easter-egg {
+    display: inline;
+    cursor: default;
+    user-select: none;
+}
+
+.easter-egg.found {
+    font-family: 'Press Start 2P', cursive;
+    color: #ff6b6b;
+    cursor: pointer;
+    text-shadow: 2px 2px #4a4a4a;
+}
