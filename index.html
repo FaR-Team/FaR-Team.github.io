@@ -56,7 +56,7 @@
         <h2 data-lang="nav_about">About Us</h2>
         <div class="about-content">
             <div class="about-text">
-                <p data-lang="aboutText1">F.a.R. Team is a game development studio dedicated to creating high-quality, cozy, casual games. We also strive to offer a welcoming space in this <span class="easter-egg" data-lang="easterEgg_big" data-egg="big">big</span> industry where aspiring talents can kickstart their careers in game development, regardless of prior experience.</p>
+                <p data-lang="aboutText1">F.a.R. Team is a game development studio dedicated to creating high-quality, cozy, casual games. We also strive to offer a welcoming space in this <span class="easter-egg" data-lang="easterEgg_big" data-egg="BIG">BIG</span> industry where aspiring talents can kickstart their careers in game development, regardless of prior experience.</p>
                 <p data-lang="aboutText2">Beyond game creation, we are committed to fostering a collaborative and inclusive culture where creativity thrives. Our team believes in the importance of mentorship, providing guidance and opportunities for growth as we work together to build experiences that delight and inspire players.</p>
                 <div class="social-icons-about">
                     <a href="https://x.com/FaRTeamStudio" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
@@ -99,7 +99,7 @@
                     <div class="devlog-overlay">
                         <p class="devlog-title">
                             <span data-lang="latestDevlogTitle">We took Room Makers to a Festival in our</span>
-                            <span class="easter-egg" data-lang="easterEgg_city" data-egg="city">city</span>!
+                            <span class="easter-egg" data-lang="easterEgg_city" data-egg="CITY">CITY</span>!
                         </p>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
             <div class="contact-flex-wrapper">
                 <div class="contact-info">
                     <h2 data-lang="nav_contact">Contact Us</h2>
-                    <p class="contact-subtitle" data-lang="contactSubtitle">For business, promotional inquiries or if you want to stay in touch with our projects and the <span class="easter-egg" data-lang="easterEgg_life" data-egg="life">Life</span> they inspire</p>
+                    <p class="contact-subtitle" data-lang="contactSubtitle">For business, promotional inquiries or if you want to stay in touch with our projects and the <span class="easter-egg" data-lang="easterEgg_life" data-egg="LIFE">LIFE</span> they inspire</p>
                 </div>
                 <div class="contact-content">
                     <form id="contact-form">
@@ -505,14 +505,37 @@
               translatePage(e.target.value);
               localStorage.setItem('preferredLanguage', e.target.value);
           });
+            // Replace the existing DOMContentLoaded event listener with this updated version
+            document.addEventListener('DOMContentLoaded', () => {
+                const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
+                languageSelect.value = savedLanguage;
+                translatePage(savedLanguage);
+            });
 
-          // Replace your existing DOMContentLoaded event listener with this:
-          document.addEventListener('DOMContentLoaded', () => {
-              const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
-              languageSelect.value = savedLanguage;
-              translatePage(savedLanguage);
-          });
+            // Add this to handle language persistence across all pages
+            const allLinks = document.querySelectorAll('a');
+            allLinks.forEach(link => {
+                if (link.href.includes('farteam.digital')) {
+                    link.addEventListener('click', () => {
+                        const currentLang = document.getElementById('languageSelect').value;
+                        localStorage.setItem('preferredLanguage', currentLang);
+                    });
+                }
+            });
 
+          // Update the game logo links in the projects section
+        document.addEventListener('DOMContentLoaded', () => {
+            const gameLinks = document.querySelectorAll('.game-logo-link');
+            
+            gameLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const currentLang = document.getElementById('languageSelect').value;
+                    const baseUrl = link.getAttribute('href');
+                    window.location.href = `${baseUrl}?lang=${currentLang}`;
+                });
+            });
+        });
       </script>
     </body>
 </html>
