@@ -157,8 +157,8 @@ footer .logo {
     text-align: center;
     padding: 1px 0;
     font-size: 0.8rem;
-    background-color: rgba(0, 0, 0, 0.1);
 }
+
 footer .nav-menu {
     display: flex;
     list-style-type: none;
@@ -339,9 +339,9 @@ footer .nav-menu {
         margin-bottom: 15px;
     }
 }
-
 .hero-banner {
-    width: 1240px;
+    width: var(--container-width);
+    max-width: 1200px;
     height: 400px;
     margin: 0 auto;
     background-size: cover;
@@ -349,7 +349,6 @@ footer .nav-menu {
     border-radius: 20px;
     overflow: hidden;
 }
-
 .contact-section {
     padding: 50px 0;
     color: #35424a;
@@ -829,16 +828,15 @@ footer .nav-menu {
     font-size: clamp(4rem, 10vw, 5rem);
     color: #D88E49;
     text-align: center;
-    margin: 1rem 0;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .content-box {
     max-width: 1200px;
-    height: 300px;
+    min-height: 300px;
+    height: auto;
     margin: 0 auto;
     margin-top: 25px;
     background-color: #ffffff;
@@ -848,7 +846,6 @@ footer .nav-menu {
     transition: transform 0.3s ease;
     padding: 20px;
 }
-
 .content-box p {
     color: #000000;
     line-height: 1.6;
@@ -913,4 +910,29 @@ p { font-size: clamp(1rem, 2vw, 1.2rem); }
 
 #closeAlert:hover {
     background-color: #C1CF47;
+}
+
+.other-button {
+    display: inline-block;
+    font-size: clamp(10px, 3vw, 20px);
+    padding: 10px 20px;
+    background-color: #C1CF47;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.other-button:hover {
+    background-color: #D88E49;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 2rem 0;
 }
