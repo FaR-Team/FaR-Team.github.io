@@ -1,5 +1,5 @@
 :root {
-    --container-width: min(90%, 1400px);
+    --container-width: min(100%, 1400px);
 }
 
 * {
@@ -9,11 +9,15 @@
 }
 
 body {
+    width: 100%;
+    margin: 0;
+    padding-right: 0;
+    padding-left: 0;
+    overflow-x: hidden;
     padding-top: clamp(80px, 10vh, 100px);
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
-    overflow-x: hidden;
 }
 
 header {
@@ -23,7 +27,7 @@ header {
     left: 0;
     right: 0;
     width: 100vw;
-    z-index: 1000;
+    z-index: 2000;
     background-color: #D88E49;
     color: #ffffff;
     padding: 0 clamp(10px, 3vw, 30px);
@@ -40,10 +44,30 @@ header {
       display: none;
       flex-direction: column;
       cursor: pointer;
+      z-index: 2001;
   }
 
   .hamburger span {
-      height: 3px;
+
+@media (max-width: 768px) {
+  .container,
+  .news-section,
+  .about-section, 
+  .team-section,
+  .contact-section,
+  .game-section,
+  .game-content,
+  .devlog-section {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .content-box {
+    border-radius: 0;
+    width: 100%;
+  }
+}      height: 3px;
       width: 25px;
       background-color: #ffffff;
       margin: 2px 0;
@@ -67,6 +91,7 @@ header {
     align-items: center;
     height: 100%;
     gap: clamp(10px, 2vw, 20px);
+    z-index: 1999;
 }
 
 .nav-menu li {
@@ -82,6 +107,14 @@ header {
     display: flex;
     align-items: center;
     height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:active {
+    background-color: rgba(0,0,0,0.1);
 }
 
 @media (max-width: 768px) {
@@ -120,6 +153,9 @@ header {
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: #D88E49;
+        width: 100%;
+        z-index: 1999;
     }
 
     .nav-menu li {
@@ -130,7 +166,7 @@ header {
     .nav-menu a {
         width: 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: 15px 0;
     }
 }
 footer {
