@@ -43,7 +43,7 @@ const translations = {
         nav_team: "Equipo",
         nav_contact: "Contacto",
         close: "Cerrar",
-        aboutText1: "F.a.R. Team es un estudio de desarrollo de videojuegos dedicado a crear juegos casuales, acogedores y de alta calidad. También nos esforzamos por ofrecer un espacio acogedor en la industria para que talentos emergentes puedan iniciar sus carreras en desarrollo de videojuegos, sin importar su experiencia previa.",
+        aboutText1: "F.a.R. Team es un estudio de desarrollo de videojuegos dedicado a crear juegos casuales, acogedores y de alta calidad. También nos esforzamos por ofrecer un espacio agradable en la industria para que talentos emergentes puedan iniciar sus carreras en desarrollo de videojuegos, sin importar su experiencia previa.",
         aboutText2: "Más allá de la creación de juegos, fomentamos una cultura colaborativa e inclusiva, donde la creatividad prospera. Creemos en la importancia de la mentoría, proporcionando orientación y oportunidades de crecimiento mientras trabajamos en experiencias que deleiten e inspiren a los jugadores.",
         latestDevlogTitle: "¡Llevamos a Room Makers a un Festival!",
         sashaBio: "Sasha es un líder visionario; entró en la industria por el medio más raro imaginable: simplemente le dio la gana.",
