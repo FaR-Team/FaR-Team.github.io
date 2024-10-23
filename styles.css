@@ -170,42 +170,59 @@ header {
         padding: 15px 0;
     }
 }
+
 footer {
     background-color: #D88E49;
     color: #ffffff;
     width: 100vw;
     box-sizing: border-box;
+    padding: 0 clamp(10px, 3vw, 30px);
 }
 
 .footer-container {
     width: var(--container-width);
     margin: 0 auto;
-    padding: 5px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: clamp(60px, 8vh, 80px);
 }
 
 footer .logo {
     height: clamp(60px, 8vh, 80px);
+    display: block;
 }
+
+footer .nav-menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: clamp(10px, 2vw, 20px);
+}
+
+footer .nav-menu li {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+footer .nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 15px;
+    transition: background-color 0.3s ease;
+}
+
 
 .footer-bottom {
     text-align: center;
     color: #E4C8AB;
     padding: 1px 0;
     font-size: 0.8rem;
-}
-
-footer .nav-menu {
-    display: flex;
-    list-style-type: none;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 @media (max-width: 768px) {
