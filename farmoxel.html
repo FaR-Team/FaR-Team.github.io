@@ -56,7 +56,7 @@
         <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
         <nav>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" data-lang="nav_home">Home</a></li>
             </ul>
         </nav>
         <div class="hamburger">
@@ -78,9 +78,9 @@
       <div class="container">
         <section class="about-game">
             <div class="content-box">
-            <h2>About Farmoxel</h2>
-            <p>Codename: Project Farmoxel is a resource management farming game with a charming voxel art style, inspired by beloved titles like Stardew Valley and Slime Rancher. It combines classic farming mechanics—such as harvesting, crop care, and economy management—with an innovative telekinesis mechanic. This unique twist offers casual gamers a fresh and cozy experience in the world of farming simulations.</p>
-            <p>The game also features a rich narrative. With 29 unique characters, each with their own story to tell, players will be immersed in a whirlwind of emotions as they encounter unexpected twists, building up to a memorable finale.</p>
+            <h2 data-lang="aboutFarm">About Farmoxel</h2>
+            <p data-lang="aboutFarm_text1">Codename: Project Farmoxel is a resource management farming game with a charming voxel art style, inspired by beloved titles like Stardew Valley and Slime Rancher. It combines classic farming mechanics—such as harvesting, crop care, and economy management—with an innovative telekinesis mechanic. This unique twist offers casual gamers a fresh and cozy experience in the world of farming simulations.</p>
+            <p data-lang="aboutFarm_text2">The game also features a rich narrative. With 29 unique characters, each with their own story to tell, players will be immersed in a whirlwind of emotions as they encounter unexpected twists, building up to a memorable finale.</p>
             </div>
         </section>
     
@@ -97,14 +97,9 @@
             <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" data-lang="nav_home">Home</a></li>
                 </ul>
             </nav>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
         <div class="footer-bottom">
             <p>© 2024 FaR Team. All rights reserved.</p>
@@ -130,6 +125,28 @@
         window.addEventListener('scroll', toggleHeaderVisibility);
         // Initial check
         toggleHeaderVisibility();
+
+        function translatePage(lang) {
+              const elements = document.querySelectorAll('[data-lang]');
+              elements.forEach(element => {
+                  const key = element.getAttribute('data-lang');
+                  if (translations[lang] && translations[lang][key]) {
+                      element.textContent = translations[lang][key];
+                  }
+              });
+          }
+        
+          languageSelect.addEventListener('change', (e) => {
+              translatePage(e.target.value);
+              localStorage.setItem('preferredLanguage', e.target.value);
+          });
+        
+          // Initial translation on page load
+          document.addEventListener('DOMContentLoaded', () => {
+              const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+              languageSelect.value = savedLanguage;
+              translatePage(savedLanguage);
+          });
     </script>
 </body>
 </html>

@@ -35,7 +35,7 @@
         <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
         <nav>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" data-lang="nav_home">Home</a></li>
             </ul>
         </nav>
         <div class="hamburger">
@@ -57,9 +57,9 @@
       <div class="container">
         <section class="about-game">
             <div class="content-box">
-            <h2>About Room Makers</h2>
-            <p>Room Makers is a puzzle-based mobile game in the style of the original GameBoy originally created for the GBJam-11 game jam. In this game, players must manage the available space in each room by strategically placing furniture, which they receive piece by piece. Some furniture pieces can be combined into special combos, and it’s up to the player to discover them. After this, the player can unlock new randomly generated rooms with the points earned.</p>
-            <p>Currently, you can try out the web demo (playable on both PC and phones), but a Play Store version is coming soon, packed with additional content and unique features.</p>
+            <h2 data-lang="aboutRM">About Room Makers</h2>
+            <p data-lang="aboutRM_text1">Room Makers is a puzzle-based mobile game in the style of the original GameBoy originally created for the GBJam-11 game jam. In this game, players must manage the available space in each room by strategically placing furniture, which they receive piece by piece. Some furniture pieces can be combined into special combos, and it’s up to the player to discover them. After this, the player can unlock new randomly generated rooms with the points earned.</p>
+            <p data-lang="aboutRM_text2">Currently, you can try out the web demo (playable on both PC and phones), but a Play Store version is coming soon, packed with additional content and unique features.</p>
             </div>
         </section>
     
@@ -77,7 +77,7 @@
             <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" data-lang="nav_home">Home</a></li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -110,6 +110,28 @@
         window.addEventListener('scroll', toggleHeaderVisibility);
         // Initial check
         toggleHeaderVisibility();
+
+        function translatePage(lang) {
+              const elements = document.querySelectorAll('[data-lang]');
+              elements.forEach(element => {
+                  const key = element.getAttribute('data-lang');
+                  if (translations[lang] && translations[lang][key]) {
+                      element.textContent = translations[lang][key];
+                  }
+              });
+          }
+        
+          languageSelect.addEventListener('change', (e) => {
+              translatePage(e.target.value);
+              localStorage.setItem('preferredLanguage', e.target.value);
+          });
+        
+          // Initial translation on page load
+          document.addEventListener('DOMContentLoaded', () => {
+              const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+              languageSelect.value = savedLanguage;
+              translatePage(savedLanguage);
+          });
     </script>
 </body>
 </html>

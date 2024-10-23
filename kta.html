@@ -19,7 +19,7 @@
         <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
         <nav>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" data-lang="nav_home">Home</a></li>
             </ul>
         </nav>
         <div class="hamburger">
@@ -40,8 +40,8 @@
       <div class="container">
         <section class="about-game">
             <div class="content-box">
-            <h2>About KTA</h2>
-            <p>KTA is a procedurally generated endless arcade high-score chaser game where players pilot a spaceship, dodging obstacles to score as many points as possible. Already available on the Google Play Store, we have plans to release future updates aimed at enhancing the overall gameplay experience.</p>
+            <h2 data-lang="aboutKTA">About KTA</h2>
+            <p data-lang="aboutKTA_text">KTA is a procedurally generated endless arcade high-score chaser game where players pilot a spaceship, dodging obstacles to score as many points as possible. Already available on the Google Play Store, we have plans to release future updates aimed at enhancing the overall gameplay experience.</p>
             </div>
         </section>
     
@@ -58,7 +58,7 @@
             <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" data-lang="nav_home">Home</a></li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -70,6 +70,7 @@
         <div class="footer-bottom">
             <p>© 2024 FaR Team. All rights reserved.</p>
         </div>
+        <script src="translations.js"></script>
     </footer>
     <script>
         // Function to toggle header visibility
@@ -91,6 +92,28 @@
         window.addEventListener('scroll', toggleHeaderVisibility);
         // Initial check
         toggleHeaderVisibility();
+
+        function translatePage(lang) {
+              const elements = document.querySelectorAll('[data-lang]');
+              elements.forEach(element => {
+                  const key = element.getAttribute('data-lang');
+                  if (translations[lang] && translations[lang][key]) {
+                      element.textContent = translations[lang][key];
+                  }
+              });
+          }
+        
+          languageSelect.addEventListener('change', (e) => {
+              translatePage(e.target.value);
+              localStorage.setItem('preferredLanguage', e.target.value);
+          });
+        
+          // Initial translation on page load
+          document.addEventListener('DOMContentLoaded', () => {
+              const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+              languageSelect.value = savedLanguage;
+              translatePage(savedLanguage);
+          });
     </script>
 </body>
 </html>
