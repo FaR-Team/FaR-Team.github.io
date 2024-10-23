@@ -27,6 +27,10 @@ const translations = {
         aboutFarm: "About Farmoxel",
         aboutFarm_text1: "Codename: Project Farmoxel is a resource management farming game with a charming voxel art style, inspired by beloved titles like Stardew Valley and Slime Rancher. It combines classic farming mechanics—such as harvesting, crop care, and economy management—with an innovative telekinesis mechanic. This unique twist offers casual gamers a fresh and cozy experience in the world of farming simulations.",
         aboutFarm_text2: "The game also features a rich narrative. With 29 unique characters, each with their own story to tell, players will be immersed in a whirlwind of emotions as they encounter unexpected twists, building up to a memorable finale.",
+        news_image_1: "Images/News1.png",
+        news_image_2: "Images/News2.png", 
+        news_image_3: "Images/News3.png",
+        news_image_4: "Images/News4.png"
     },
     es: {
         nav_home: "Inicio",
@@ -56,5 +60,9 @@ const translations = {
         aboutFarm: "Sobre Farmoxel",
         aboutFarm_text1: "Nombre Clave: Proyecto Farmoxel es un juego de gestión de recursos de granja con un estilo de arte voxel encantador, inspirado en títulos como Stardew Valley y Slime Rancher. Combina los clásicos mecanismos de granja, como la cosecha, el cuidado de cultivos y la gestión de la economía, con un mecanismo de telequinesis innovador. Esta peculiaridad ofrece a los jugadores casuales una experiencia fresca y acogedora en el mundo de las simulaciones de granja.",
         aboutFarm_text2: "El juego también cuenta con una narrativa rica. Con 29 personajes únicos, cada uno con su propia historia que contar, los jugadores se sumergirán en una ola de emociones inesperadas mientras se encuentran con giros inesperados, construyendo hasta un final memorable.",
+        news_image_1: "Images/News1_es.png",
+        news_image_2: "Images/News2_es.png",
+        news_image_3: "Images/News3_es.png", 
+        news_image_4: "Images/News4_es.png"
     }
 };
