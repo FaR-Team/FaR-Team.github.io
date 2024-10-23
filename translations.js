@@ -39,7 +39,8 @@ const translations = {
         news_image_4: "Images/News4.png",
         downloadButton: "DOWNLOAD FOR FREE",
         demoButton: "PLAY OUR FREE DEMO", 
-        feedbackButton: "GIVE US FEEDBACK", 
+        feedbackButton: "GIVE US FEEDBACK",
+        secretButton: "DISCOVER OUR SECRET", 
     },
     es: {
         nav_home: "Inicio",
@@ -81,6 +82,7 @@ const translations = {
         news_image_4: "Images/News4_es.png",
         downloadButton: "DESCARGALO GRATIS",
         demoButton: "JUGÁ LA DEMO GRATIS", 
-        feedbackButton: "DANOS FEEDBACK", 
+        feedbackButton: "DANOS FEEDBACK",
+        secretButton: "DESCUBRE NUESTRO SECRETO", 
     }
 };
