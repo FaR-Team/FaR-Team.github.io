@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaR Team - Big City Life</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .devlog-button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="Images/FaRLogo.jpg">
+</head>
+<body>
+    <header>
+        <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-lang="nav_home">Home</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <div class="content-wrapper">
+      <div class="container">
+          <h1 class="game-title">Big City Life</h1>
+      </div>
+
+    <div class="hero-banner" style="background-image: url('Images/FaRBanner.jpeg'); margin-top: -180px;">
+        <div class="hero-content"></div>
+    </div>
+
+      <div class="container">
+        <section class="about-game">
+            <div class="content-box">
+            <h2 data-lang="aboutBCL">About Big City Life</h2>
+            <p data-lang="aboutBCL_text">"Big City Life" is a Minecraft server game mode set in a bustling city. Players can roleplay by getting jobs, buying cars, and renting apartments. While it sounds more complex than other projects, it's managed by Team B and won’t affect the development of other games by F.a.R. Team. The game isn't available to play yet, but it's in progress.</p>
+            </div>
+        </section>
+    
+        <div class="devlog-button-container">
+            <a href="https://play.google.com/store/apps/details?id=com.FaRTeam.KTA" class="other-button">DOWNLOAD FOR FREE</a>
+        </div>
+        <div class="devlog-button-container">
+            <a href="https://blog.farteam.digital/" class="devlog-button">DEVLOG</a>
+        </div>
+    </div>
+    
+    <footer id="main-footer">
+        <div class="footer-container">
+            <img src="Images/longlogo.png" alt="FaR Team Logo" class="logo">
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" data-lang="nav_home">Home</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 FaR Team. All rights reserved.</p>
+        </div>
+        <script src="translations.js"></script>
+    </footer>
+    <script>
+        // Function to toggle header visibility
+        function toggleHeaderVisibility() {
+            const header = document.querySelector('header');
+            const footer = document.getElementById('main-footer');
+            const headerHeight = header.offsetHeight;
+            const footerTop = footer.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (footerTop - windowHeight < headerHeight) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', toggleHeaderVisibility);
+        // Initial check
+        toggleHeaderVisibility();
+
+        function translatePage(lang) {
+              const elements = document.querySelectorAll('[data-lang]');
+              elements.forEach(element => {
+                  const key = element.getAttribute('data-lang');
+                  if (translations[lang] && translations[lang][key]) {
+                      element.textContent = translations[lang][key];
+                  }
+              });
+          }
+        
+          languageSelect.addEventListener('change', (e) => {
+              translatePage(e.target.value);
+              localStorage.setItem('preferredLanguage', e.target.value);
+          });
+        
+          // Initial translation on page load
+          document.addEventListener('DOMContentLoaded', () => {
+              const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+              languageSelect.value = savedLanguage;
+              translatePage(savedLanguage);
+          });
+    </script>
+</body>
+</html>
