@@ -1054,7 +1054,7 @@ p { font-size: clamp(1rem, 2vw, 1.2rem); }
     margin: 2rem 0;
 }
   .language-selector {
-      margin-left: 20px;
+      margin-left: 28px;
       position: relative;
       display: inline-block;
   }
@@ -1067,16 +1067,17 @@ p { font-size: clamp(1rem, 2vw, 1.2rem); }
       background-color: rgba(255, 255, 255, 0.1);
       color: white;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
       font-family: 'Open Sans', sans-serif;
       transition: all 0.3s ease;
   }
 
   .language-selector::after {
-      content: '🌐';
+      content: '🗺️';
+      color: white;
       position: absolute;
       right: 12px;
-      top: 50%;
+      top: 42%;
       transform: translateY(-50%);
       pointer-events: none;
       font-size: 16px;
