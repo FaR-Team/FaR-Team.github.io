@@ -350,22 +350,24 @@ footer .nav-menu {
     overflow: hidden;
 }
 .contact-section {
-    padding: 50px 0;
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #35424a;
     background-color: #f8f4f4;
 }
 
 .contact-container {
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .contact-title {
-    flex: 1;
-    text-align: center; /* Center the contact title */
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .contact-title h2 {
@@ -373,9 +375,43 @@ footer .nav-menu {
     margin-bottom: 20px;
 }
 
+.contact-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 15px;
+}
+
+.contact-flex-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
 .contact-content {
     flex: 1;
-    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #333;
 }
 
 #contact-form {
@@ -385,40 +421,45 @@ footer .nav-menu {
 
 #contact-form input,
 #contact-form textarea {
-    margin-bottom: 15px;
-    padding: 10px;
+    width: 100%;
+    padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
 }
 
 #contact-form textarea {
-    height: 100px;
+    min-height: 200px;
     resize: vertical;
 }
 
 #contact-form button {
-    padding: 10px 20px;
-    background-color: #D88E49;
-    color: white;
+    width: 100%;
+    padding: 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
+    background: #C1CF47;
+    color: white;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 #contact-form button:hover {
-    background-color: #C1CF47;
+    background: #D88E49;
 }
 
 @media (max-width: 768px) {
-    .contact-container {
+    .contact-flex-wrapper {
         flex-direction: column;
+        gap: 30px;
     }
-    .contact-image {
-        min-height: 200px;
+    
+    .contact-info {
+        text-align: center;
     }
 }
-
 .news-section h2 {
     color: #35424a;
     margin-bottom: 30px;
@@ -429,7 +470,8 @@ footer .nav-menu {
     font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
-.news-section h2::after {
+.news-section h2::after,
+.contact-section h2::after {
     content: '';
     display: block;
     width: 50px;
@@ -595,7 +637,6 @@ footer .nav-menu {
   .container,
   .news-section,
   .about-section,
-  .devlog-section,
   .team-section,
   .contact-section,
   .game-section,
@@ -651,31 +692,17 @@ footer .nav-menu {
     background-repeat: no-repeat;
 }
 
-.devlog-section h2 {
-    color: #35424a;
-    margin-bottom: 30px;
-    max-width: 800px;
-    text-align: center; /* Center the devlog title */
-    font-size: clamp(2rem, 5vw, 2.5rem);
-}
-
-.devlog-section h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: #D88E49;
-    margin: 15px auto 0;
-}
-
 .devlog-section {
-    max-width: 1200px;
-    padding: 2rem 0;
-    text-align: center;
+    width: var(--container-width);
+    margin: clamp(20px, 3vh, 40px) auto;
+    padding: 0 20px;
 }
 
 .devlog-content {
     display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -699,8 +726,8 @@ footer .nav-menu {
 }
 
 .devlog-preview {
-    max-width: 900px;
     width: 100%;
+    max-width: 970px;
 }
 
 .devlog-image-container {
@@ -864,14 +891,13 @@ p { font-size: clamp(1rem, 2vw, 1.2rem); }
 
 .game-section h2::after,
 .devlog-section h2::after,
-.team-section h2::after,
-.contact-section h2::after {
+.team-section h2::after {
     content: '';
     display: block;
     width: 50px;
     height: 3px;
     background-color: #D88E49;
-    margin: 15px auto 0;
+    margin: 10px auto 0;
 }
 
 .modal {
