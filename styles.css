@@ -1146,3 +1146,108 @@ p { font-size: clamp(1rem, 2vw, 1.2rem); }
 #secret-button-container {
     margin: 20px 0;
 }
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #343537;
+    color: #E8F5D5;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #8B9184;
+}
+
+body.dark-mode a {
+    color: #BA6F4A;
+}
+
+body.dark-mode .nav-menu a {
+    color: #E8F5D5;
+}
+
+/* Dark mode toggle button styles */
+.theme-toggle button {
+    background: none;
+    border: none;
+    color: #BA6F4A;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+body.dark-mode .theme-toggle button {
+    color: #D88E49;
+}
+
+/* Toggle button animation */
+.theme-toggle button i {
+    transition: transform 0.5s ease;
+}
+
+.dark-mode .theme-toggle button i {
+    transform: rotate(360deg);
+}
+
+/* Smooth transition for all color changes */
+body, a, h1, h2, h3, .nav-menu a, .section-separator, .team-member, .contact-section {
+    transition: all 0.3s ease;
+}
+
+
+body.dark-mode .section-separator {
+    background-color: #8B9184;
+}
+
+body.dark-mode .team-member {
+    background-color: #404243;
+}
+
+body.dark-mode .contact-section {
+    background-color: #404243;
+}
+
+body.dark-mode .devlog-button,
+body.dark-mode .secret-button,
+body.dark-mode form button[type="submit"] {
+    background-color: #BA6F4A;
+    color: #E8F5D5;
+}
+
+body.dark-mode .easter-egg:hover {
+    color: #BA6F4A;
+}
+
+body.dark-mode .footer-container .nav-menu a:hover {
+    color: #BA6F4A;
+}
+
+body.dark-mode .content-box,
+body.dark-mode .game-content,
+body.dark-mode .about-content,
+body.dark-mode .news-carousel {
+    background-color: #404243;
+    color: #E8F5D5;
+}
+
+body.dark-mode .game-banner,
+body.dark-mode .feature {
+    background-color: #404243;
+    color: #E8F5D5;
+}
+
+body.dark-mode #contact-form input,
+body.dark-mode #contact-form textarea {
+    background-color: #343537;
+    color: #E8F5D5;
+    border-color: #8B9184;
+}
+
+body.dark-mode header {
+    background-color: #BA6F4A;
+}
+
+body.dark-mode footer {
+    background-color: #BA6F4A;
+}
