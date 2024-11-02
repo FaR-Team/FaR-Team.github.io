@@ -26,6 +26,11 @@
                         <option value="es">ES</option>
                     </select>
                 </li>
+                <li class="theme-toggle">
+                    <button id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>         
             </ul>
         </nav>
         <div class="hamburger">
@@ -145,6 +150,7 @@
             translatePage(e.target.value);
             localStorage.setItem('preferredLanguage', e.target.value);
         });
-        </script>
+    </script>
+    <script src="darkMode.js"></script>
 </body>
 </html>
