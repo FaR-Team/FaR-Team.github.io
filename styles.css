@@ -484,13 +484,13 @@ footer .nav-menu a {
     color: #333;
 }
 
-#contact-form {
+#contact-form, #contact-formita {
     display: flex;
     flex-direction: column;
 }
 
-#contact-form input,
-#contact-form textarea {
+#contact-form, #contact-formita input,
+#contact-form, #contact-formita textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid #ddd;
@@ -499,12 +499,12 @@ footer .nav-menu a {
     font-size: 1rem;
 }
 
-#contact-form textarea {
+#contact-form, #contact-formita textarea {
     min-height: 200px;
     resize: vertical;
 }
 
-#contact-form button {
+#contact-form, #contact-formita button {
     width: 100%;
     padding: 15px;
     border: none;
@@ -516,7 +516,7 @@ footer .nav-menu a {
     transition: background 0.3s ease;
 }
 
-#contact-form button:hover {
+#contact-form, #contact-formita button:hover {
     background: #D88E49;
 }
 
@@ -753,6 +753,17 @@ footer .nav-menu a {
 .social-icons-about a:hover {
     color: #D88E49;
 }
+
+.social-icons-about a {
+    font-size: clamp(24px, 4vw, 32px);
+    color: #C1CF47;
+    transition: color 0.3s ease;
+    margin: 0 10px;
+}
+.social-icons-about a:hover {
+    color: #D88E49;
+}
+
 
 .social-icons a {
     font-size: clamp(24px, 4vw, 32px);
@@ -1237,8 +1248,8 @@ body.dark-mode .feature {
     color: #E8F5D5;
 }
 
-body.dark-mode #contact-form input,
-body.dark-mode #contact-form textarea {
+body.dark-mode #contact-form, body.dark-mode #contact-formita input,
+body.dark-mode #contact-form, body.dark-mode #contact-formita textarea {
     background-color: #343537;
     color: #E8F5D5;
     border-color: #8B9184;
@@ -1250,4 +1261,95 @@ body.dark-mode header {
 
 body.dark-mode footer {
     background-color: #BA6F4A;
+}
+
+.work-with-us {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.work-with-us h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.work-with-us .content {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.work-with-us h2, .work-with-us h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.work-with-us .positions,
+.work-with-us .apply,
+.work-with-us .benefits {
+    margin-bottom: 2rem;
+}
+
+.work-with-us ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+}
+
+.work-with-us a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.work-with-us a:hover {
+    text-decoration: underline;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #C1CF47;
+    box-shadow: 0 0 5px rgba(193, 207, 71, 0.3);
+}
+
+.form-group select:hover {
+    border-color: #D88E49;
+}
+
+.form-group select option {
+    padding: 15px;
+    background: #ffffff;
+    color: #35424a;
+}
+
+body.dark-mode .form-group select {
+    background-color: #343537;
+    color: #E8F5D5;
+    border-color: #8B9184;
+}
+
+body.dark-mode .form-group select:focus {
+    border-color: #BA6F4A;
+    box-shadow: 0 0 5px rgba(186, 111, 74, 0.3);
+}
+
+body.dark-mode .form-group select:hover {
+    border-color: #D88E49;
+}
+
+body.dark-mode .form-group select option {
+    background-color: #404243;
+    color: #E8F5D5;
 }

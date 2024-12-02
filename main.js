@@ -178,111 +178,105 @@ function toggleHeaderVisibility() {
 window.addEventListener('scroll', toggleHeaderVisibility);
 // Initial check
 toggleHeaderVisibility();
-  // Add this to your existing script
-  const languageSelect = document.getElementById('languageSelect');
 
-  // Add this function right before your existing translatePage function
-  function getBrowserLanguage() {
-      const language = navigator.language || navigator.userLanguage;
-      // Currently supporting 'en' and 'es', default to 'en' for other languages
-      return language.startsWith('es') ? 'es' : 'en';
-  }
+// Language selector functionality
+const languageSelect = document.getElementById('languageSelect');
 
-  function translatePage(lang) {
-      // Existing text translation
-      const elements = document.querySelectorAll('[data-lang]');
-      elements.forEach(element => {
-          const key = element.getAttribute('data-lang');
-          if (translations[lang] && translations[lang][key]) {
-              element.textContent = translations[lang][key];
-          }
-      });
+function updateContent(language) {
+    document.querySelectorAll('[data-lang]').forEach(element => {
+        const key = element.getAttribute('data-lang');
+        const keys = key.split('.');
+        let translation = translations[language];
+        
+        // Handle nested translations (like services.programming)
+        for (const k of keys) {
+            translation = translation[k];
+        }
+        
+        if (translation) {
+            element.textContent = translation;
+        }
+    });
+}
 
-      // Add image translation
-      const imageElements = document.querySelectorAll('[data-lang-img]');
-      imageElements.forEach(element => {
-          const key = element.getAttribute('data-lang-img');
-          if (translations[lang] && translations[lang][key]) {
-              element.style.backgroundImage = `url('${translations[lang][key]}')`;
-          }
-      });
-  }
-
-  function translatePage(lang) {
-      // Handle text translations including easter eggs
-      const elements = document.querySelectorAll('[data-lang]');
-      elements.forEach(element => {
-          const key = element.getAttribute('data-lang');
-          if (translations[lang] && translations[lang][key]) {
-              let text = translations[lang][key];
-    
-              // Handle easter eggs
-              const easterEggs = element.querySelectorAll('.easter-egg');
-              easterEggs.forEach(egg => {
-                  const eggType = egg.getAttribute('data-egg');
-                  text = text.replace(`{${eggType}}`, `<span class="easter-egg" data-egg="${eggType}">${eggType}</span>`);
-              });
-    
-              element.innerHTML = text;
-          }
-      });
-
-      // Handle image translations for news carousel
-      const imageElements = document.querySelectorAll('[data-lang-img]');
-      imageElements.forEach(element => {
-          const key = element.getAttribute('data-lang-img');
-          if (translations[lang] && translations[lang][key]) {
-              element.style.backgroundImage = `url('${translations[lang][key]}')`;
-          }
-      });
-
-      // Reattach easter egg listeners
-      initializeEasterEggs();
-  }
-  function initializeEasterEggs() {
-      const easterEggs = document.querySelectorAll('.easter-egg');
-      const secretButtonContainer = document.getElementById('secret-button-container');
-      let foundEggs = [];
-      
-      easterEggs.forEach(egg => {
-          egg.addEventListener('click', () => {
-              if (!foundEggs.includes(egg.dataset.egg)) {
-                  egg.classList.add('found');
-                  foundEggs.push(egg.dataset.egg);
-                  
-                  if (foundEggs.length === 3) {
-                      secretButtonContainer.style.display = 'block';
-                      secretButtonContainer.scrollIntoView({ 
-                          behavior: 'smooth',
-                          block: 'center'
-                      });
-                  }
-              }
-          });
-      });
-  }
-
-  // Call initializeEasterEggs on page load
-  document.addEventListener('DOMContentLoaded', initializeEasterEggs);
-// Improve language selector handling
+// Event listener for language change
 languageSelect.addEventListener('change', (e) => {
-    // Close menu first
-    navMenu.classList.remove('active');
-    hamburger.classList.remove('active');
-    document.querySelector('header').classList.remove('active');
-    
-    // Then handle language change
-    translatePage(e.target.value);
-    localStorage.setItem('preferredLanguage', e.target.value);
+    updateContent(e.target.value);
 });
 
-  // Replace your existing DOMContentLoaded event listener with this:
-  document.addEventListener('DOMContentLoaded', () => {
-      const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
-      languageSelect.value = savedLanguage;
-      translatePage(savedLanguage);
-  });
+// Initial content update
+updateContent(languageSelect.value);
 
+function getBrowserLanguage() {
+    const language = navigator.language || navigator.userLanguage;
+    // Currently supporting 'en' and 'es', default to 'en' for other languages
+    return language.startsWith('es') ? 'es' : 'en';
+}
+
+function translatePage(lang) {
+    // Handle text translations including easter eggs
+    const elements = document.querySelectorAll('[data-lang]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-lang');
+        if (translations[lang] && translations[lang][key]) {
+            let text = translations[lang][key];
+  
+            // Handle easter eggs
+            const easterEggs = element.querySelectorAll('.easter-egg');
+            easterEggs.forEach(egg => {
+                const eggType = egg.getAttribute('data-egg');
+                text = text.replace(`{${eggType}}`, `<span class="easter-egg" data-egg="${eggType}">${eggType}</span>`);
+            });
+  
+            element.innerHTML = text;
+        }
+    });
+
+    // Handle image translations for news carousel
+    const imageElements = document.querySelectorAll('[data-lang-img]');
+    imageElements.forEach(element => {
+        const key = element.getAttribute('data-lang-img');
+        if (translations[lang] && translations[lang][key]) {
+            element.style.backgroundImage = `url('${translations[lang][key]}')`;
+        }
+    });
+
+    // Reattach easter egg listeners
+    initializeEasterEggs();
+}
+
+function initializeEasterEggs() {
+    const easterEggs = document.querySelectorAll('.easter-egg');
+    const secretButtonContainer = document.getElementById('secret-button-container');
+    let foundEggs = [];
+    
+    easterEggs.forEach(egg => {
+        egg.addEventListener('click', () => {
+            if (!foundEggs.includes(egg.dataset.egg)) {
+                egg.classList.add('found');
+                foundEggs.push(egg.dataset.egg);
+                
+                if (foundEggs.length === 3) {
+                    secretButtonContainer.style.display = 'block';
+                    secretButtonContainer.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Call initializeEasterEggs on page load
+document.addEventListener('DOMContentLoaded', initializeEasterEggs);
+
+// Replace your existing DOMContentLoaded event listener with this:
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
+    languageSelect.value = savedLanguage;
+    translatePage(savedLanguage);
+});
   // Update the game logo links in the projects section
 document.addEventListener('DOMContentLoaded', () => {
     const gameLinks = document.querySelectorAll('.game-logo-link');
