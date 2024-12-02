@@ -484,13 +484,14 @@ footer .nav-menu a {
     color: #333;
 }
 
-#contact-form, #contact-formita {
+#contact-form,
+#contact-formita {
     display: flex;
     flex-direction: column;
 }
 
-#contact-form, #contact-formita input,
-#contact-form, #contact-formita textarea {
+#contact-form input,
+#contact-form textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid #ddd;
@@ -499,12 +500,24 @@ footer .nav-menu a {
     font-size: 1rem;
 }
 
-#contact-form, #contact-formita textarea {
+#contact-formita input,
+#contact-formita textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+}
+
+#contact-form textarea,
+#contact-formita textarea {
     min-height: 200px;
     resize: vertical;
 }
 
-#contact-form, #contact-formita button {
+#contact-form button,
+#contact-formita button {
     width: 100%;
     padding: 15px;
     border: none;
@@ -516,7 +529,8 @@ footer .nav-menu a {
     transition: background 0.3s ease;
 }
 
-#contact-form, #contact-formita button:hover {
+#contact-form button:hover,
+#contact-formita button:hover {
     background: #D88E49;
 }
 
@@ -1248,8 +1262,10 @@ body.dark-mode .feature {
     color: #E8F5D5;
 }
 
-body.dark-mode #contact-form, body.dark-mode #contact-formita input,
-body.dark-mode #contact-form, body.dark-mode #contact-formita textarea {
+body.dark-mode #contact-form input,
+body.dark-mode #contact-formita input,
+body.dark-mode #contact-form textarea,
+body.dark-mode #contact-formita textarea {
     background-color: #343537;
     color: #E8F5D5;
     border-color: #8B9184;
