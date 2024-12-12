@@ -71,7 +71,7 @@ const translations = {
         ulysesBio: "Ulysses es una persona metódica y organizada, con un profundo conocimiento de la industria. Su enfoque estructurado y su capacidad de organización son fundamentales para mantener el equipo alineado y funcionando eficientemente.",
         francoBio: "Franco es un experto en la resolución de problemas, con una capacidad incomparable para encontrar soluciones cuando nadie más lo logra. Su enfoque analítico y su pensamiento crítico lo convierten en un recurso indispensable para el equipo.",
         andreaBio: "Andrea es una artista excepcional, que ha logrado establecer un estilo visual único en los proyectos del equipo. Su capacidad creativa y su atención al detalle han sido esenciales para definir la identidad visual de cada juego.",
-        contactSubtitle: "Para consultas comerciales, promocionales o si quieres mantenerte en contacto con nuestros proyectos y la vida que inspiran",
+        contactSubtitle: "Para consultas comerciales, promocionales o si quieres mantenerte en contacto con nuestros proyectos y la {LIFE} que inspiran",
         contactSubtitleWWU: "Envíanos un mensaje, cuéntanos sobre tu juego y nuestro equipo se comunicará contigo lo antes posible. ¡Estamos ansiosos por trabajar con usted!",
         yourName: "Tu Nombre",
         yourEmail: "Tu Email",

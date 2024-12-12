@@ -1,4 +1,3 @@
-
 const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1291586406904496211/UFbDsMO-78NG4RWLpE9HH0yGPnZVnp2gz-qwI2vtKV_Rv0_73Of3eBD17zd4QnzTRV49';
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -189,18 +188,11 @@ function updateContent(language) {
     });
 }
 
-
-languageSelect.addEventListener('change', (e) => {
-    updateContent(e.target.value);
-});
-
-
-updateContent(languageSelect.value);
-
 function getBrowserLanguage() {
     const language = navigator.language || navigator.userLanguage;
     return language.startsWith('es') ? 'es' : 'en';
 }
+
 function translatePage(lang) {
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(element => {
@@ -218,7 +210,6 @@ function translatePage(lang) {
         }
     });
 
-    // Handle image translations for news carousel
     const imageElements = document.querySelectorAll('[data-lang-img]');
     imageElements.forEach(element => {
         const key = element.getAttribute('data-lang-img');
@@ -228,10 +219,13 @@ function translatePage(lang) {
     });
 
     initializeEasterEggs();
-
-
 }
-function initializeEasterEggs() {
+
+languageSelect.addEventListener('change', (e) => {
+    const selectedLang = e.target.value;
+    translatePage(selectedLang);
+    localStorage.setItem('preferredLanguage', selectedLang);
+});function initializeEasterEggs() {
     const easterEggs = document.querySelectorAll('.easter-egg');
     const totalEggs = 3;
     let foundEggs = 0;
@@ -280,3 +274,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function updateImages(language) {
+    const imageElements = document.querySelectorAll('[data-lang-img]');
+    imageElements.forEach(element => {
+        const imageKey = element.getAttribute('data-lang-img');
+        if (translations[language][imageKey]) {
+            if (element.tagName === 'IMG') {
+                element.src = translations[language][imageKey];
+            } else {
+                element.style.backgroundImage = `url('${translations[language][imageKey]}')`;
+            }
+        }
+    });
+}

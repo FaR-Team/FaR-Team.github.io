@@ -89,19 +89,19 @@ header {
     margin: 2px 0;
     transition: all 0.3s ease-in-out;
     transform-origin: center;
-  }
+}
 
-  .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-  }
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
 
-  .hamburger.active span:nth-child(2) {
-      opacity: 0;
-  }
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
 
-  .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-  }
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
 .nav-menu {
     display: flex;
     align-items: center;
@@ -132,6 +132,11 @@ header {
 .nav-menu a:active {
     background-color: rgba(0,0,0,0.1);
 }
+
+.nav-menu a:hover {
+    color: #8d543a;
+}
+
 
 @media (max-width: 768px) {
     header::before {
@@ -195,17 +200,22 @@ footer {
 }
 
 .footer-container {
-    width: var(--container-width);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     height: clamp(60px, 8vh, 80px);
 }
 
-footer .logo {
-    height: clamp(60px, 8vh, 80px);
-    display: block;
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        padding: 10px 0;
+        height: clamp(60px, 8vh, 80px);
+    }
+
+    footer .logo {
+        height: clamp(40px, 6vh, 60px);
+    }
 }
 
 footer .nav-menu {
@@ -816,7 +826,7 @@ footer .nav-menu a {
 
 .devlog-button {
     display: inline-block;
-    font-size: clamp(18px, 3vw, 24px);
+    font-size: clamp(27px, 5vw, 36px);
     padding: 10px 20px;
     background-color: #C1CF47;
     color: white;
@@ -989,10 +999,7 @@ footer .nav-menu a {
     transition: transform 0.3s ease;
     padding: 20px;
 }
-.content-box p {
-    color: #000000;
-    line-height: 1.6;
-}
+
 
 h1 { font-size: clamp(2rem, 5vw, 3rem); }
 h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
@@ -1192,6 +1199,11 @@ body.dark-mode .nav-menu a {
     color: #E8F5D5;
 }
 
+body.dark-mode .nav-menu a:hover {
+    color: #8d543a;
+}
+
+
 /* Dark mode toggle button styles */
 .theme-toggle button {
     background: none;
@@ -1230,7 +1242,7 @@ body.dark-mode .team-member {
 }
 
 body.dark-mode .contact-section {
-    background-color: #404243;
+    background-color: #343537;
 }
 
 body.dark-mode .devlog-button,
@@ -1240,12 +1252,18 @@ body.dark-mode form button[type="submit"] {
     color: #E8F5D5;
 }
 
+body.dark-mode .other-button
+{
+    background-color: #BA6F4A;
+    color: #E8F5D5;
+}
+
 body.dark-mode .easter-egg:hover {
     color: #BA6F4A;
 }
 
-body.dark-mode .footer-container .nav-menu a:hover {
-    color: #BA6F4A;
+.footer-container .nav-menu a:hover {
+    color: #8d543a;
 }
 
 body.dark-mode .content-box,
