@@ -1,11 +1,13 @@
 // Dark mode toggle functionality
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
+const modeIcon = darkModeToggle.querySelector('.mode-icon');
 
 // Check for saved dark mode preference
 const darkMode = localStorage.getItem('darkMode');
 if (darkMode === 'enabled') {
     body.classList.add('dark-mode');
+    modeIcon.src = 'Images/DarkMode.png';
 }
 
 // Add this code to handle the logo switching
@@ -14,6 +16,8 @@ function updateLogos(isDark) {
     logos.forEach(logo => {
         logo.src = isDark ? "Images/darklonglogo.png" : "Images/longlogo.png";
     });
+    // Update mode toggle icon
+    modeIcon.src = isDark ? "Images/DarkMode.png" : "Images/LightMode.png";
 }
 
 // Call this initially

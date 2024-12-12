@@ -1387,3 +1387,16 @@ body.dark-mode .form-group select option {
     background-color: #404243;
     color: #E8F5D5;
 }
+
+.mode-icon {
+    width: 36px;
+    height: 36px;
+    transition: all 0.3s ease;
+}
+
+#darkModeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
