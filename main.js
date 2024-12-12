@@ -9,17 +9,16 @@ const navLinks = document.querySelectorAll('.nav-menu a');
       document.querySelector('header').classList.toggle('active');
   });
   document.addEventListener('click', (e) => {
-      // Only close menu if clicking outside header entirely
       if (!document.querySelector('header').contains(e.target)) {
           navMenu.classList.remove('active');
           hamburger.classList.remove('active');
           document.querySelector('header').classList.remove('active');
       }
   });
-  // Get all menu items
+
   const menuItems = document.querySelectorAll('.nav-menu li a');
 
-  // Add click handler to each menu item
+
   menuItems.forEach(item => {
       item.addEventListener('click', (e) => {
           if (item.getAttribute('href').startsWith('#')) {
@@ -38,7 +37,7 @@ const navLinks = document.querySelectorAll('.nav-menu a');
                   });
               }
           }
-          // Close menu
+
           navMenu.classList.remove('active');
           hamburger.classList.remove('active');
           document.querySelector('header').classList.remove('active');
@@ -107,7 +106,6 @@ contactForm.addEventListener('submit', (e) => {
     });
 });
 
-// News carousel script
 const carousel = document.querySelector('.news-carousel');
 const items = carousel.querySelectorAll('.news-item');
 const dotsContainer = document.querySelector('.dots');
@@ -115,7 +113,6 @@ const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 let currentIndex = 0;
 
-// Create dots
 items.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('dot');
@@ -137,7 +134,7 @@ function goToSlide(index) {
     currentIndex = index;
     items[currentIndex].classList.add('active');
     dotsContainer.children[currentIndex].classList.add('active');
-    startCarouselTimer(); // Reset the timer when manually changing slides
+    startCarouselTimer();
 }
 
 function nextSlide() {
@@ -151,15 +148,12 @@ function prevSlide() {
 nextButton.addEventListener('click', nextSlide);
 prevButton.addEventListener('click', prevSlide);
 
-// Start the initial timer
 startCarouselTimer();
 
-// Add click event listeners to dots
 dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
     dot.addEventListener('click', () => goToSlide(index));
 });
 
-// Function to toggle header visibility
 function toggleHeaderVisibility() {
     const header = document.querySelector('header');
     const footer = document.getElementById('main-footer');
@@ -174,12 +168,9 @@ function toggleHeaderVisibility() {
     }
 }
 
-// Add scroll event listener
 window.addEventListener('scroll', toggleHeaderVisibility);
-// Initial check
 toggleHeaderVisibility();
 
-// Language selector functionality
 const languageSelect = document.getElementById('languageSelect');
 
 function updateContent(language) {
@@ -188,7 +179,6 @@ function updateContent(language) {
         const keys = key.split('.');
         let translation = translations[language];
         
-        // Handle nested translations (like services.programming)
         for (const k of keys) {
             translation = translation[k];
         }
@@ -199,35 +189,31 @@ function updateContent(language) {
     });
 }
 
-// Event listener for language change
+
 languageSelect.addEventListener('change', (e) => {
     updateContent(e.target.value);
 });
 
-// Initial content update
+
 updateContent(languageSelect.value);
 
 function getBrowserLanguage() {
     const language = navigator.language || navigator.userLanguage;
-    // Currently supporting 'en' and 'es', default to 'en' for other languages
     return language.startsWith('es') ? 'es' : 'en';
 }
-
 function translatePage(lang) {
-    // Handle text translations including easter eggs
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
         if (translations[lang] && translations[lang][key]) {
             let text = translations[lang][key];
-  
-            // Handle easter eggs
-            const easterEggs = element.querySelectorAll('.easter-egg');
-            easterEggs.forEach(egg => {
-                const eggType = egg.getAttribute('data-egg');
-                text = text.replace(`{${eggType}}`, `<span class="easter-egg" data-egg="${eggType}">${eggType}</span>`);
-            });
-  
+        
+            // Extract easter eggs from text and replace with spans
+            const eggRegex = /\{([^}]+)\}/g;
+            text = text.replace(eggRegex, (match, eggType) => 
+                `<span class="easter-egg" data-egg="${eggType}">${eggType}</span>`
+            );
+        
             element.innerHTML = text;
         }
     });
@@ -241,24 +227,30 @@ function translatePage(lang) {
         }
     });
 
-    // Reattach easter egg listeners
     initializeEasterEggs();
-}
 
+
+}
 function initializeEasterEggs() {
     const easterEggs = document.querySelectorAll('.easter-egg');
-    const secretButtonContainer = document.getElementById('secret-button-container');
-    let foundEggs = [];
-    
+    const totalEggs = 3;
+    let foundEggs = 0;
+
     easterEggs.forEach(egg => {
+        egg.replaceWith(egg.cloneNode(true));
+    });
+
+    // Reattach fresh listeners to the new elements
+    document.querySelectorAll('.easter-egg').forEach(egg => {
         egg.addEventListener('click', () => {
-            if (!foundEggs.includes(egg.dataset.egg)) {
+            if (!egg.classList.contains('found')) {
                 egg.classList.add('found');
-                foundEggs.push(egg.dataset.egg);
-                
-                if (foundEggs.length === 3) {
-                    secretButtonContainer.style.display = 'block';
-                    secretButtonContainer.scrollIntoView({ 
+                foundEggs++;
+            
+                if (foundEggs === totalEggs) {
+                    document.getElementById('secret-button-container').style.display = 'block';
+
+                    document.getElementById('secret-button-container').scrollIntoView({
                         behavior: 'smooth',
                         block: 'center'
                     });
@@ -268,16 +260,14 @@ function initializeEasterEggs() {
     });
 }
 
-// Call initializeEasterEggs on page load
 document.addEventListener('DOMContentLoaded', initializeEasterEggs);
 
-// Replace your existing DOMContentLoaded event listener with this:
 document.addEventListener('DOMContentLoaded', () => {
     const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
     languageSelect.value = savedLanguage;
     translatePage(savedLanguage);
 });
-  // Update the game logo links in the projects section
+
 document.addEventListener('DOMContentLoaded', () => {
     const gameLinks = document.querySelectorAll('.game-logo-link');
     

@@ -15,7 +15,7 @@ const translations = {
         ulysesBio: "Ulysses is a methodical and organized person with deep industry knowledge. His structured approach and organizational skills are critical to keeping the team aligned and running efficiently.",
         francoBio: "Franco is an expert problem solver with an unrivaled ability to find solutions when no one else can. His analytical approach and critical thinking make him an indispensable asset to the team.",
         andreaBio: "Andrea is an exceptional artist, who has managed to establish a unique visual style across the team's projects. Her creative ability and attention to detail have been essential in defining the visual identity of each game.",
-        contactSubtitle: "For business, promotional inquiries or if you want to stay in touch with our projects and the life they inspire",
+        contactSubtitle: "For business, promotional inquiries or if you want to stay in touch with our projects and the {LIFE} they inspire",
         contactSubtitleWWU: "Send Us a message, tell us about your game and our team will get back to you as soon as possible. We are eager to work with you!",
         yourName: "Your Name",
         yourEmail: "Your Email",
