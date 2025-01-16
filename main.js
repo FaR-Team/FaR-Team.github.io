@@ -1,4 +1,4 @@
-const DISCORD_WEBHOOK_URL = 'WEBHOOK';
+const DISCORD_WEBHOOK_URL = '{process.env.WEBHOOK}';
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu a');
