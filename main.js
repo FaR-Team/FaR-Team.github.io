@@ -1,4 +1,4 @@
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1291586406904496211/UFbDsMO-78NG4RWLpE9HH0yGPnZVnp2gz-qwI2vtKV_Rv0_73Of3eBD17zd4QnzTRV49';
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1329280192266371072/UeGQJbhTXJ4rTWSZ_rjHxQFqR5g_j4XHpwxWfncuXIcNJWzn8hQdJToF7KiIfCNiTUXT';
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu a');
