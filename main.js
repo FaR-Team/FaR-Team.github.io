@@ -1,4 +1,4 @@
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1329280192266371072/UeGQJbhTXJ4rTWSZ_rjHxQFqR5g_j4XHpwxWfncuXIcNJWzn8hQdJToF7KiIfCNiTUXT';
+const DISCORD_WEBHOOK_URL = 'WEBHOOK';
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu a');
