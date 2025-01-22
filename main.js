@@ -1,4 +1,13 @@
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1329280192266371072/UeGQJbhTXJ4rTWSZ_rjHxQFqR5g_j4XHpwxWfncuXIcNJWzn8hQdJToF7KiIfCNiTUXT';
+const encryptWebhook = (url) => {
+    return btoa(url.split('').reverse().join(''));
+};
+
+const decryptWebhook = (encrypted) => {
+    return atob(encrypted).split('').reverse().join('');
+};
+
+const ENCRYPTED_WEBHOOK = 'VExVTHpkeTZ2cWJMOFA2dWF5cHZsNEFoVUt6SlhqWlJmckNlODFWcFBMME9lUVpSOUpELWJtNkRRMGFNRnZpYl81UEMvNzE2MjA0MTU3MTI2Mzc2MTMzMS9za29vaGJldy9pcGEvbW9jLmRyb2NzaWQvLzpzcHR0aA==';
+const DISCORD_WEBHOOK_URL = decryptWebhook(ENCRYPTED_WEBHOOK);
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu a');
