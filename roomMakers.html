@@ -26,6 +26,184 @@
             flex-shrink: 0;
         }
 
+        /* Gallery Carousel Styles */
+        .gallery-section {
+            margin: 3rem 0;
+        }
+
+        .gallery-carousel {
+            position: relative;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            background-color: black;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-video {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .play-button:hover {
+            opacity: 1;
+        }
+
+        .play-button i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .carousel-control {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .carousel-control:hover {
+            color: var(--accent-color);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin: 0 1rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-dot.active {
+            background-color: var(--accent-color);
+        }
+
+        .carousel-pause {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .pause-button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .pause-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .pause-button.playing i {
+            content: "\f04c"; /* pause icon */
+        }
+
+        .pause-button.paused i:before {
+            content: "\f04b";
+        }
+
+        .carousel-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px; /* Slightly taller */
+            background-color: rgba(0, 0, 0, 0.3); /* Darker background */
+            z-index: 20;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #FF8C00;;
+            transition: width 0.05s linear;
+            position: relative;
+            z-index: 21;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for better visibility */
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="Images/FaRLogo.jpg">
@@ -69,8 +247,47 @@
         <section class="about-game">
             <div class="content-box">
             <h2 data-lang="aboutRM">About Room Makers</h2>
-            <p data-lang="aboutRM_text1">Room Makers is a puzzle-based mobile game in the style of the original GameBoy originally created for the GBJam-11 game jam. In this game, players must manage the available space in each room by strategically placing furniture, which they receive piece by piece. Some furniture pieces can be combined into special combos, and it’s up to the player to discover them. After this, the player can unlock new randomly generated rooms with the points earned.</p>
+            <p data-lang="aboutRM_text1">Room Makers is a puzzle-based mobile game in the style of the original GameBoy originally created for the GBJam-11 game jam. In this game, players must manage the available space in each room by strategically placing furniture, which they receive piece by piece. Some furniture pieces can be combined into special combos, and it's up to the player to discover them. After this, the player can unlock new randomly generated rooms with the points earned.</p>
             <p data-lang="aboutRM_text2">Currently, you can try out the web demo (playable on both PC and phones), but a Play Store version is coming soon, packed with additional content and unique features.</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="content-box">
+                <h2 data-lang="galleryRM">Gallery</h2>
+                <div class="gallery-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video class="preview-video" loop muted>
+                                        <source src="Images/RMGallery/RM-gameplay-1.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="play-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/RMGallery/RM-gallery-1.png" alt="Room Makers Screenshot 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/RMGallery/RM-gallery-2.png" alt="Room Makers Screenshot 2">
+                            </div>
+                        </div>
+                        <div class="carousel-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="carousel-dots"></div>
+                        <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="carousel-pause">
+                        <button class="pause-button"><i class="fas fa-pause"></i></button>
+                    </div>
+                </div>
             </div>
         </section>
     
@@ -141,6 +358,15 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
+            function getBrowserLanguage() {
+                // Get the browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                
+                const primaryLang = browserLang.split('-')[0];
+                
+                return (primaryLang === 'es') ? 'es' : 'en';
+            }
+            
             const savedLanguage = localStorage.getItem('preferredLanguage') || getBrowserLanguage();
             languageSelect.value = savedLanguage;
             translatePage(savedLanguage);
@@ -174,5 +400,246 @@
         });
     </script>
     <script src="darkMode.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carousel functionality
+            const track = document.querySelector('.carousel-track');
+            const items = document.querySelectorAll('.carousel-item');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            const prevButton = document.querySelector('.carousel-control.prev');
+            const nextButton = document.querySelector('.carousel-control.next');
+            const pauseButton = document.querySelector('.pause-button');
+            const previewVideos = document.querySelectorAll('.preview-video');
+            const playButtons = document.querySelectorAll('.play-button');
+            const progressBar = document.querySelector('.progress-bar');
+            
+            // Check if progress bar exists
+            if (!progressBar) {
+                console.error('Progress bar element not found');
+                return;
+            }
+            
+            let currentIndex = 0;
+            let itemWidth = 0;
+            let isPlaying = true;
+            let autoplayInterval;
+            let progressInterval;
+            const slideInterval = 5000;
+            
+            // Function to update item width
+            function updateItemWidth() {
+                // Get width from the container instead of the item
+                itemWidth = document.querySelector('.carousel-container').getBoundingClientRect().width;
+                
+                // Set width for all items
+                items.forEach(item => {
+                    item.style.width = `${itemWidth}px`;
+                });
+                
+                // Update track position without animation
+                track.style.transition = 'none';
+                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                // Force reflow
+                track.offsetHeight;
+                // Restore transition
+                track.style.transition = 'transform 0.5s ease-in-out';
+            }
+            
+            // Create dots
+            items.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('carousel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            // Initialize videos
+            previewVideos.forEach(video => {
+                video.play().catch(e => console.log("Auto-play prevented:", e));
+            });
+            
+            // Set up event listeners
+            window.addEventListener('resize', () => {
+                updateItemWidth();
+                goToSlide(currentIndex, false);
+            });
+            
+            prevButton.addEventListener('click', () => {
+                goToSlide(currentIndex - 1);
+            });
+            
+            nextButton.addEventListener('click', () => {
+                goToSlide(currentIndex + 1);
+            });
+            
+            pauseButton.addEventListener('click', toggleAutoplay);
+            
+            playButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    // Find the correct carousel item that contains this button
+                    const carouselItem = button.closest('.carousel-item');
+                    const videoContainer = carouselItem.querySelector('.video-container');
+                    const video = videoContainer.querySelector('video');
+                    
+                    if (video) {
+                        // Stop autoplay
+                        stopAutoplay();
+                        
+                        // Unmute and play the video
+                        video.muted = false;
+                        video.controls = true;
+                        video.play().catch(e => console.log("Play prevented:", e));
+                        
+                        // Hide play button
+                        button.style.display = 'none';
+                        
+                        // When video ends or is paused, resume autoplay and reset
+                        const resetVideo = () => {
+                            video.muted = true;
+                            video.controls = false;
+                            button.style.display = 'flex';
+                            startAutoplay();
+                            
+                            // Remove these event listeners to prevent multiple bindings
+                            video.removeEventListener('ended', resetVideo);
+                            video.removeEventListener('pause', resetVideo);
+                        };
+                        
+                        video.addEventListener('ended', resetVideo);
+                        video.addEventListener('pause', resetVideo);
+                    }
+                });
+            });
+            
+            // Functions
+            function goToSlide(index, animate = true) {
+                // Reset progress bar
+                resetProgressBar();
+                
+                // Handle wrapping
+                if (index < 0) {
+                    index = items.length - 1;
+                } else if (index >= items.length) {
+                    index = 0;
+                }
+                
+                currentIndex = index;
+                
+                // Update track position
+                if (!animate) {
+                    track.style.transition = 'none';
+                } else {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                }
+                
+                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                
+                // Force reflow if not animating
+                if (!animate) {
+                    track.offsetHeight;
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                }
+                
+                // Update dots
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+                
+                // Reset all videos except current one
+                previewVideos.forEach((video, i) => {
+                    if (i !== currentIndex) {
+                        video.currentTime = 0;
+                        video.muted = true;
+                        video.controls = false;
+                        const playButton = video.parentElement.querySelector('.play-button');
+                        if (playButton) playButton.style.display = 'flex';
+                    }
+                });
+                
+                // Play the current video preview if it exists
+                const currentVideo = items[currentIndex].querySelector('video');
+                if (currentVideo) {
+                    currentVideo.play().catch(e => console.log("Auto-play prevented:", e));
+                }
+                
+                // Start progress bar animation if autoplay is on
+                if (isPlaying) {
+                    startProgressBar();
+                }
+            }
+            
+            function startAutoplay() {
+                if (!isPlaying) return;
+                
+                // Clear any existing intervals
+                stopAutoplay();
+                
+                // Start progress bar
+                startProgressBar();
+                
+                autoplayInterval = setInterval(() => {
+                    goToSlide(currentIndex + 1);
+                }, slideInterval);
+                
+                pauseButton.classList.remove('paused');
+                pauseButton.classList.add('playing');
+                pauseButton.querySelector('i').className = 'fas fa-pause';
+            }
+            
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+                clearInterval(progressInterval);
+                progressBar.style.width = '0%';
+            }
+            
+            function toggleAutoplay() {
+                isPlaying = !isPlaying;
+                
+                if (isPlaying) {
+                    startAutoplay();
+                } else {
+                    stopAutoplay();
+                    pauseButton.classList.remove('playing');
+                    pauseButton.classList.add('paused');
+                    pauseButton.querySelector('i').className = 'fas fa-play';
+                }
+            }
+            
+            function startProgressBar() {
+                // Reset progress bar
+                resetProgressBar();
+                
+                // Set initial width to 0
+                progressBar.style.width = '0%';
+                
+                // Animate progress bar
+                let progress = 0;
+                const increment = 100 / (slideInterval / 64);
+                
+                progressInterval = setInterval(() => {
+                    progress += increment;
+                    progressBar.style.width = `${Math.min(progress, 100)}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(progressInterval);
+                    }
+                }, 50);
+            }
+            
+            function resetProgressBar() {
+                clearInterval(progressInterval);
+                progressBar.style.width = '0%';
+            }
+            
+            // Initialize item widths
+            updateItemWidth();
+            
+            // Start the carousel
+            startAutoplay();
+        });
+    </script>
 </body>
 </html>
