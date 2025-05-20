@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.FaRTeam.RoomMakers",
+      "sha256_cert_fingerprints": [
+        "62:E5:FC:95:F1:86:40:F4:B3:2B:BF:27:F3:47:E6:4D:71:82:C5:99:CF:BC:64:BF:10:1A:BE:58:F7:BF:89:E7"
+      ]
+    }
+  }
+]
