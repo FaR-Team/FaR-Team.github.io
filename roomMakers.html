@@ -190,8 +190,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px; /* Slightly taller */
-            background-color: rgba(0, 0, 0, 0.3); /* Darker background */
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.3);
             z-index: 20;
         }
 
@@ -202,7 +202,7 @@
             transition: width 0.05s linear;
             position: relative;
             z-index: 21;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for better visibility */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -291,6 +291,9 @@
             </div>
         </section>
     
+        <div class="devlog-button-container">
+            <a href="https://play.google.com/store/apps/details?id=com.FaRTeam.RoomMakers" class="other-button" data-lang="downloadButton">DOWNLOAD FOR FREE</a>
+        </div>
         <div class="devlog-button-container">
             <a href="https://farteam.digital/RoomMakersDemo" class="other-button" data-lang="demoButton">PLAY OUR FREE DEMO</a>
             <a href="https://farteam.digital/RoomMakersFeedback" class="other-button" data-lang="feedbackButton">GIVE US FEEDBACK</a>
@@ -389,7 +392,6 @@
             }
         });
 
-        // Update the language select event listener to include menu closing
         languageSelect.addEventListener('change', (e) => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
@@ -402,7 +404,6 @@
     <script src="darkMode.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Carousel functionality
             const track = document.querySelector('.carousel-track');
             const items = document.querySelectorAll('.carousel-item');
             const dotsContainer = document.querySelector('.carousel-dots');
@@ -413,7 +414,6 @@
             const playButtons = document.querySelectorAll('.play-button');
             const progressBar = document.querySelector('.progress-bar');
             
-            // Check if progress bar exists
             if (!progressBar) {
                 console.error('Progress bar element not found');
                 return;
@@ -426,26 +426,19 @@
             let progressInterval;
             const slideInterval = 5000;
             
-            // Function to update item width
             function updateItemWidth() {
-                // Get width from the container instead of the item
                 itemWidth = document.querySelector('.carousel-container').getBoundingClientRect().width;
                 
-                // Set width for all items
                 items.forEach(item => {
                     item.style.width = `${itemWidth}px`;
                 });
                 
-                // Update track position without animation
                 track.style.transition = 'none';
                 track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-                // Force reflow
                 track.offsetHeight;
-                // Restore transition
                 track.style.transition = 'transform 0.5s ease-in-out';
             }
             
-            // Create dots
             items.forEach((_, index) => {
                 const dot = document.createElement('div');
                 dot.classList.add('carousel-dot');
@@ -456,12 +449,10 @@
             
             const dots = document.querySelectorAll('.carousel-dot');
             
-            // Initialize videos
             previewVideos.forEach(video => {
                 video.play().catch(e => console.log("Auto-play prevented:", e));
             });
             
-            // Set up event listeners
             window.addEventListener('resize', () => {
                 updateItemWidth();
                 goToSlide(currentIndex, false);
@@ -479,31 +470,25 @@
             
             playButtons.forEach((button) => {
                 button.addEventListener('click', () => {
-                    // Find the correct carousel item that contains this button
                     const carouselItem = button.closest('.carousel-item');
                     const videoContainer = carouselItem.querySelector('.video-container');
                     const video = videoContainer.querySelector('video');
                     
                     if (video) {
-                        // Stop autoplay
                         stopAutoplay();
                         
-                        // Unmute and play the video
                         video.muted = false;
                         video.controls = true;
                         video.play().catch(e => console.log("Play prevented:", e));
                         
-                        // Hide play button
                         button.style.display = 'none';
                         
-                        // When video ends or is paused, resume autoplay and reset
                         const resetVideo = () => {
                             video.muted = true;
                             video.controls = false;
                             button.style.display = 'flex';
                             startAutoplay();
                             
-                            // Remove these event listeners to prevent multiple bindings
                             video.removeEventListener('ended', resetVideo);
                             video.removeEventListener('pause', resetVideo);
                         };
@@ -514,12 +499,9 @@
                 });
             });
             
-            // Functions
             function goToSlide(index, animate = true) {
-                // Reset progress bar
                 resetProgressBar();
                 
-                // Handle wrapping
                 if (index < 0) {
                     index = items.length - 1;
                 } else if (index >= items.length) {
@@ -528,7 +510,6 @@
                 
                 currentIndex = index;
                 
-                // Update track position
                 if (!animate) {
                     track.style.transition = 'none';
                 } else {
@@ -537,18 +518,15 @@
                 
                 track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
                 
-                // Force reflow if not animating
                 if (!animate) {
                     track.offsetHeight;
                     track.style.transition = 'transform 0.5s ease-in-out';
                 }
                 
-                // Update dots
                 dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === currentIndex);
                 });
                 
-                // Reset all videos except current one
                 previewVideos.forEach((video, i) => {
                     if (i !== currentIndex) {
                         video.currentTime = 0;
@@ -559,13 +537,11 @@
                     }
                 });
                 
-                // Play the current video preview if it exists
                 const currentVideo = items[currentIndex].querySelector('video');
                 if (currentVideo) {
                     currentVideo.play().catch(e => console.log("Auto-play prevented:", e));
                 }
                 
-                // Start progress bar animation if autoplay is on
                 if (isPlaying) {
                     startProgressBar();
                 }
@@ -574,10 +550,8 @@
             function startAutoplay() {
                 if (!isPlaying) return;
                 
-                // Clear any existing intervals
                 stopAutoplay();
                 
-                // Start progress bar
                 startProgressBar();
                 
                 autoplayInterval = setInterval(() => {
@@ -609,13 +583,10 @@
             }
             
             function startProgressBar() {
-                // Reset progress bar
                 resetProgressBar();
                 
-                // Set initial width to 0
                 progressBar.style.width = '0%';
                 
-                // Animate progress bar
                 let progress = 0;
                 const increment = 100 / (slideInterval / 64);
                 
@@ -634,10 +605,8 @@
                 progressBar.style.width = '0%';
             }
             
-            // Initialize item widths
             updateItemWidth();
             
-            // Start the carousel
             startAutoplay();
         });
     </script>
