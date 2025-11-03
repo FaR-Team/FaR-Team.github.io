@@ -106,7 +106,7 @@ contactForm.addEventListener('submit', (e) => {
     })
     .catch(error => {
         console.error('Error:', error);
-        showCustomAlert('There was an error sending your message. Please try again later. Or send us an email at contacto@farteam.digital');
+        showCustomAlert('There was an error sending your message. Please try again later. Or send us an email at contacto@farteam.com.ar');
     })
     .finally(() => {
         submitButton.disabled = false;
