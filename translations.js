@@ -95,7 +95,7 @@ const translations = {
         news_image_2: "Images/News2_es.png",
         news_image_3: "Images/News3_es.png", 
         news_image_4: "Images/News4_es.png",
-        news_image_4: "Images/News5_es.png",
+        news_image_5: "Images/News5_es.png",
         downloadButton: "DESCARGALO GRATIS",
         demoButton: "JUGÁ LA DEMO GRATIS", 
         feedbackButton: "DANOS FEEDBACK",
